@@ -185,14 +185,5 @@
     長い！CAPTCHA
 
     コンピュータと人間を区別するテスト
-
     Google reCAPTCHA が有名だけど他にもあるんかな
-
-# -1
-## output
-# -1
-## output
-# -1
-## output
-# -1
-## output
+    i-FILTERとかは独自の製品にCAPTCHA利用しているようだ
