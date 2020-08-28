@@ -13,3 +13,19 @@
 - RSpecテスティングフレームワーク　Everyday Rails
 - Applyのデプロイ
 - 応用編でVue連携
+
+## SUBJECT ##
+1. Web技術（基本）
+2. Git
+3. Ruby基礎
+4. Rails_1
+5. Rails_2
+6. Rails_3
+7. RSpec
+8. Rails(実践)
+9. AWS
+10. RailsAPI + Vue
+
+## LESSON ##
+start 7/29
+- sub.1 fixed 8/27
