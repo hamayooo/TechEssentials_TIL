@@ -95,4 +95,40 @@
 - マージではない、履歴を整えたかたちで変更を統合するやり方
 - git rebase ブランチの起点となるコミットを別のコミットに移動する
 - コミットの履歴を一直線にしてる
+
+※ GitHubにプッシュしたコミットをリベースするのはNG!!!
+※ 履歴を残すならマージ、履歴をきれいにしたいならリベース
+
+- masterブランチは
+git config --global pull.rebase true 
+git config branch.master.rebase true //masterブランチでgit pull ときだけrebase
+```
+
+## 複数コミットをやり直す
+```
+git rebase -i コミットID
+git rebase -i HEAD~3 //3件のコミットを修正
+
+コミットをeditにする
+コミットを修正
+git commit --amend コマンドで修正
+git rebase --continueで次のコミットへ
+
+コミットをsquash >>> まとめる
+
+- コミットを分割する
+コミットをedit
+git reset HEAD^
+```
+
+## タグ
+```
+- 注釈付きタグ
+git tag -a タグ名 -m "メッセージ"
+git tag -a 20200903 -m "version 1"
+
+- 軽量版
+git tag タグ名
+
+タグをリモートに送信するとその時点のソースコードをダウンロードできたりする
 ```

@@ -28,4 +28,5 @@
 
 ## LESSON ##
 start 7/29
-- sub.1 fixed 8/27
+- sub.1 done 8/27
+- sub.2 done 9/5

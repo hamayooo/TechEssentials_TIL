@@ -117,8 +117,24 @@ git reset HEAD .
 ```
 git commit --amend 
 
-- git add してからgit commit --amend
-- リモートリポジトリにPushしたコミットはやり直したらダメ！
+※ リモートリポジトリにPushしたコミットはやり直したらダメ！
+```
+
+## 複数コミットをやり直す
+```
+git rebase -i コミットID
+git rebase -i HEAD~3 //3件のコミットを修正
+
+コミットをeditにする
+コミットを修正
+git commit --amend コマンドで修正
+git rebase --continueで次のコミットへ
+
+コミットをsquash >>> まとめる
+
+- コミットを分割する
+コミットをedit
+git reset HEAD^
 ```
 
 ## リモートを表示する
@@ -210,8 +226,38 @@ git merge origin/master
 
 ## リベース
 ```
-- masterにいたらfeatureに移動してから
+- masterにいたらfeatureに移動してからリベース
 //[fature] git rebase ブランチ名
 [fature] git rebase master
 
+- masterに戻ってマージ
+git checkout master
+git merge feature
+```
+
+## タグ
+```
+git tag タグ名
+git tag -a タグ名 -m "メッセージ" //注釈付き
+
+git tag タグ名 コミット名 //過去のコミットにタグを付けられる
+git show タグ名 //タグの情報を表示
+
+git push リモート名 タグ名 //タグを送信
+git push origin tagtag
+git push origin --tags //タグを一斉送信
+```
+
+## スタッシュ 一次避難する
+```
+git stash //一次避難
+git stash save
+git stash list //変更の確認
+git stash apply //作業を復元する
+git stash apply --index //ステージの状況も復元する
+git stash apply スタッシュ名 //スタッシュした作業を指定
+git stash apply stash@{1}
+git stash drop //避難した作業を削除する
+git stash drop スタッシュ名 //削除する作業を指定
+git stash clear //全作業を削除
 ```
