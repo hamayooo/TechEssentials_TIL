@@ -145,3 +145,18 @@ puts 0xff.to_i
 # てなに？
 # https://qiita.com/Ingward/items/43acda931c8a62c70d2f
 # 無数のスイッチのON/OFFの切り替えを制御する
+puts (~0b1010).to_s(2)
+puts (0b1010 & 0b1100).to_s(2)
+puts (0b1010 | 0b1100).to_s(2)
+puts (0b1010 ^ 0b1100).to_s(2)
+puts (0b1010 >> 1).to_s(2)
+puts (0b1010 << 1).to_s(2)
+
+puts 2e-3 # 2x10の-3乗
+
+puts 10.class
+puts 1.5.class
+
+puts '2/3'.to_r #文字列から有理数に変換
+puts 3r.class
+puts 0.3-0.5i.to_c

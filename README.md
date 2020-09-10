@@ -18,12 +18,15 @@
 1. Web技術（基本）
 2. Git
 3. Ruby基礎
+   1. プロを目指す人のためのRuby入門を読みながら進める
+   2. 日付ごとのrbファイルで学習
+   3. Tipsやまとめはruby_memoに
 4. Rails_1
 5. Rails_2
 6. Rails_3
 7. RSpec
 8. Rails(実践)
-9. AWS
+9.  AWS
 10. RailsAPI + Vue
 
 ## LESSON ##
