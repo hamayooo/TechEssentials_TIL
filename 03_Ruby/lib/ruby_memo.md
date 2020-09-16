@@ -95,8 +95,48 @@ require_relative './sample'
 ```
 
 # puts / print / p
+```
+基本はputsを使うが、改行なしのprintを使う場面もある
+```
  | メソッド | 出力後の改行 | 配列の表示 | 呼び出すメソッド | 戻り値 | 対象者 |
  | ---- | ---- | ---- | ---- | ---- | ---- |
  | puts | あり | 要素ごとに改行 | to_s | nil | 一般ユーザ |
  | print | なし | 改行しない | to_s | nil | 一般ユーザ |
  | p | あり | 改行しない | inspect | 引数のオブジェクト | 開発者 |
+
+ # テストの自動化
+ ```
+ Minitestをgemからインストール
+ $ gem install minitest -v version(5.14.2 latest)
+```
+
+```rb
+# sample code
+require 'minitest/autorun'
+
+class SampleTest < Minitest::Test # 継承（あとで）
+  def test_sample # Minitestはtest_で始まるメソッドを探す
+    assert_equal 'RUBY', 'ruby'.upcase # 検証メソッド
+  end
+end
+
+# aがbと等しければパスする
+assert_equal b, a
+
+# aが真であればパスする
+assert a
+
+# が偽であればパスする
+refute a
+
+# Finished in 0.000808s テスト実行にかかった時間
+# 1237.6238 runs/s 1秒間に実行できるであろうテストメソッドの件数
+# 1237.6238 assertions/s. 1秒間に実行できるであろう検証メソッドの件数
+# 1 runs, 実行したテストメソッドの件数
+# 1 assertions 実行した検証メソッドの件数
+# 0 failures 検証に失敗したテストメソッドの件数
+# 0 errors 検証中にエラーが発生したテストメソッドの件数
+# 0 skips skipメソッドにより実行をスキップされたテストメソッドの件数
+
+# failuresとerrorsがゼロならテスト成功
+```
