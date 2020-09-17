@@ -139,4 +139,115 @@ refute a
 # 0 skips skipメソッドにより実行をスキップされたテストメソッドの件数
 
 # failuresとerrorsがゼロならテスト成功
+
+# 別ファイルから呼ぶ場合
+recuire './lib/fizz_buzz' #-> ruby実行場所が起点
+recuire_relative '../lib/fizz_buzz' #-> これを書いてるファイルが起点
+```
+
+# Minitest以外のテスティングフレームワーク
+```rb
+# RSpec
+# 独自のDSL（ドメイン固有言語）をつかってテストコードを書く
+# ドキュメント豊富、便利な機能たくさん
+# 別途gemでインストールすべし
+require './lib/fizz_buzz'
+
+RSpec.describe 'Fizz Buzz' do
+  example 'fizz_buzz' do
+    expect(fizz_buzz(1)).to eq '1'
+    expect(fizz_buzz(2)).to eq '2'
+    expect(fizz_buzz(3)).to eq 'Fizz'
+    #省略
+  end
+end
+
+# test-unit
+# Minitestはtest-unitと互換性のあるフレームワークを目指していたのでよく似てる
+require 'test/unit'
+require './lib/fizz_buzz'
+
+class FizzBuzzTest < Test::Unit::TestCase
+  def test_fizz_buzz
+    assert_equal '1', fizz_buzz(1)
+    assert_equal '2', fizz_buzz(2)
+    assert_equal 'Fizz', fizz_buzz(3)
+    #省略
+  end
+end
+```
+
+# 配列
+```rb
+# 最後に要素を追加
+a = []
+a << 1
+a << 2
+a << 3 #=> [1,2,3]
+
+# 値の削除
+a.delete_at(1) #=> [1,3]
+
+# 多重代入
+a, b = 1, 2 #=> a = 1 , b = 2
+
+# 配列を使って多重代入
+a, b = [1, 2] #=> a = 1 , b = 2
+
+c, d = [10] #=> c = 10 , d = nil
+
+e, f = [100,200,300] #=> e = 100, f = 200
+
+# 割り算の商と余りを配列として返す
+14.divmod(3) #=> [4, 2]
+
+# 戻り値を配列のまま受け取る
+quo_rem = 14.divmod(3)
+  "商=#{quo_rem[0]}, 余り=#{quo_rem[1]}" #=> 商=4, 余り=2
+
+# 多重代入で別々の変数として受け取る（こっちのほうがスッキリ）
+quotient, remaindar = 14.divmod(3)
+  "商=#{quotient}, 余り=#{remaindar}" #=> 商=4, 余り=2
+```
+
+# ブロック
+```rb
+# Rubyの繰り返し処理
+# for などは使わず配列自身に対して繰り返せという命令を送る => each
+numbers = [1, 2, 3, 4]
+sum = 0
+numbers.each do |n| # |n|から
+  sum += n
+end # end までがブロック
+
+# delete_if 配列の要素を順番に取り出す。ブロックの戻り地が真であれば要素を削除する。
+# delete_ifメソッドの仕様に合わせてブロック内に処理を記述＋真偽の値を返す
+numbers.delete_if do |n| # delete(2)もOK。同じ値じゃないと削除できない
+  n.even?
+end
+```
+
+<!-- rubyには「要件を問わず共通する処理」はメソッド自身に、「要件によって異なる処理」はブロックにそれぞれ分担させて、1つの処理を完了させるメソッドがたくさんある -->
+
+```rb
+# ブロック続き
+# ブロック内部で使用した変数は、ブロック外では使えない
+# ブロック外部で使用した変数は、ブロック内でも使える
+numbers = [1,2,3,4]
+sum = 0
+numbers.each do |n|
+  sum_value = n.even? ? n * 10 : n # nが偶数だったら10倍
+  sum += sum_value # 加算する
+end
+sum_value #=> NameError
+
+# do end の代わりに{}で囲む
+numbers.each { |n| sum += n }
+numbers.each { |n| # 改行もあり
+  sum += n
+}
+
+# --------使いどころ--------
+# 改行を伴う長いブロックは do ... end
+# 1行でコンパクトに書きたいときは {}
 ```
