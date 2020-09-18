@@ -251,3 +251,73 @@ numbers.each { |n| # 改行もあり
 # 改行を伴う長いブロックは do ... end
 # 1行でコンパクトに書きたいときは {}
 ```
+
+## ブロックを使う配列のメソッド(4.4)
+```rb
+# each
+numbers = [1,2,3,4,5]
+new_numbers = []
+numbers.each { |n| new_numbers << n *10 }
+
+# map
+# ブロックの戻り値が配列の要素となる新しい配列が作成されるため、mapメソッドの戻り値をそのまま新しい変数に入れることができる
+numbers = [1,2,3,4,5]
+new_numbers = numbers.map { |n| n *10 }
+
+# select(エイリアスメソッドはfind_all)
+numbers = [1,2,3,4,5,6]
+# ブロックの戻り値が真になった要素だけが集められる
+even_numbers = numbers.select { |n| n.even? }
+
+# reject
+numbers = [1,2,3,4,5,6]
+# ブロックの戻り値が真になった要素を除外した配列を返す
+# 3の倍数を除外（3の倍数以外を集める）
+non_multiples_of_three = numbers.reject { |n| n % 3 == 0 }
+
+
+# find/detect
+# ブロックの戻り値が真になった最初の要素を返す
+numbers = [1,2,3,4,5,6]
+even_number = numbers.find { |n| n.even?}
+
+# inject/reduce
+# たたみ込み演算を行う
+numbers = [1,2,3,4,5,6]
+sum = numbers.inject(0) { |result, n| result + n}
+=begin
+初回のみresultにinjectメソッドの0が入る
+2回目以降はブロックの戻り値がresultに入る
+ブロックの第二引数nには配列の各要素が入る
+最後まで終わる戸ブロックの戻り値がinjectメソッドの戻り値になる
+((((0+1)+2)+3)+4)を行ったことになる
+=end
+day = ['Mon','Tue','Wed','Thu','Fri','Sat'].inject('Sun') { |result, s| result + s }
+```
+
+```rb
+# 完結に書く
+# (&:メソッド名)
+# 条件
+# 1. ブロック引数が1個だけ
+# 2. ブロックの中で呼び出すメソッドには引数がない
+# 3. ブロックの中ではブロック引数に対してメソッドを1回呼び出す以外の処理がない
+
+lang_a = ['ruby', 'java', 'perl'].map { |s| s.upcase }
+lang_b = ['ruby', 'java', 'perl'].map(&:upcase)
+
+odd_a = [1,2,3,4,5,6].select { |n| n.odd? }
+odd_b = [1,2,3,4,5,6].select(&:odd?)
+
+# これは使えない
+# - ブロックの中でメソッドではなく演算子を使ってる
+# - ブロックの中でメソッドで引数を渡してる
+# - ブロックの中で複数の文を実行してる
+
+[1,2,3,4,5,6].select { |n| n % 3 == 0 }
+[1,2,3,4,5,6].map { |n| n.to_s(16) }
+[1,2,3,4,5,6].map do |n|
+  m = n *4
+  m.to_s
+end
+```
