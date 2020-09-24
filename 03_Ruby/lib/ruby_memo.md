@@ -321,3 +321,287 @@ odd_b = [1,2,3,4,5,6].select(&:odd?)
   m.to_s
 end
 ```
+
+# Range：範囲オブジェクト
+```rb
+# 範囲オブジェクト
+range = 1..5 # 最後の値を含む 1以上5以下
+range = 1...5 # 最後の値を含まない  1以上5未満
+
+# 配列や文字列の一部を抜き出す
+a = [1,2,3,4,5]
+a[1..4]
+a[1...4]
+b = 'abcdef'
+b[0..2]
+b[0...2]
+
+# n以上m以下、n以上m未満の判定
+##不等号を使う場合
+def liquid?(temperature)
+  # 0度以上100度未満であれば液体
+  0 <= temperature && temperature < 100
+end
+
+## 範囲オブジェクトを使う場合
+def liquid?(temperature)
+  (0...100).include?(temperature)
+end
+
+# case文で使用する
+def charge(age)
+  case age
+  #0歳から5歳までの場合
+  when 0..5
+    0
+  #6歳から12歳までの場合
+  when 6..12
+    300
+  #13歳から18歳までの場合
+  when 13..18
+    600
+  #それ以外
+  else
+    1000
+  end
+end
+charge(3) #=> 0
+charge(12) #=> 300
+charge(13) #=> 600
+charge(25) #=> 1000
+
+#範囲オブジェクトに対してto_aメソッドを呼び出すと配列を作れる
+range_array = (1..5).to_a
+p range_array
+p range_array[0] #=> ちゃんと抜き出せる
+
+('a'..'e').to_a
+('a'...'e').to_a
+('bad'..'bag').to_a
+('bad'...'bag').to_a
+
+# splat展開:[* ] *を使って複数の値を配列に展開すること
+[*1..5]
+[*1...5]
+```
+
+# RGB変換プログラムを作成
+```
+・10進数を16進数に変換するto_hexメソッドと逆のto_intsメソッドを定義
+・to_hexメソッドは3角整数を受け取り16進数に変換した文字列を返す。文字列の戦闘には#をつける
+・to_intsメソッドはRGBカラーを表す16進数文字列を受け取り、RGBそれぞれを10進数の整数に変換した値を配列として返す
+```
+
+- テストファイル
+  test/rgb_test.rb
+
+```rb
+require 'minitest/autorun'
+require './lib/rgb'
+
+class RgbTest < Minitest::Test
+  # to_hexメソッドのテスト
+  def test_to_hex
+    assert_equal '#000000', to_hex(0, 0, 0)
+    assert_equal '#ffffff', to_hex(255, 255, 255)
+    assert_equal '#043c78', to_hex(4, 60, 120)
+  end
+
+  # to_intsメソッドのテスト
+  def test_to_ints
+    assert_equal [0, 0, 0], to_ints('#000000')
+    assert_equal [255, 255, 255], to_ints('#ffffff')
+    assert_equal [4, 60, 120], to_ints('#043c78')
+  end
+end
+```
+
+- 実装ファイル
+  lib/rgb.rb
+
+```rb
+# 0を00にする rjustメソッド（デフォルトは空白で桁揃え）
+'0'.rjust(5) #=> "    0"
+'0'.rjust(5, '0') #=> "00000"
+'0'.rjust(5, '_') #=> "____0"
+
+# injectメソッドを利用してリファクタリング
+def to_hex(r, g, b)
+  [r, g, b].inject('#') do |hex, n|
+    hex + n.to_s(16).rjust(2, '0')
+  end
+end
+
+# scanメソッド、mapメソッド復習、&:メソッド名を利用してリファクタリング
+# 戻り値は何かを意識する。scanの戻り値は配列
+def to_ints(hex)
+    hex.scan(/\w\w/).map(&:hex)
+end
+```
+
+# DRY原則 Dont Repeat Yourself
+
+# 配列について
+```rb
+a = [1,2,3,4,5]
+a[1,3] #=> 2つ目の要素から3つ分取り出す
+a.values_at(0,2,4) #=> 取得したい要素の添字を複数指定できる
+a[a.size - 1] #=> 配列の長さ-1で最後の要素を取得
+a[-1] #=> 最後の要素を取得
+a[-2] #=> 最後から2番目の要素を取得
+a[-2, 2] #=> 最後から2番めの要素から2つの要素を取得
+a.last #=> 最後の要素を取得
+a.last(2) #=> 最後の要素から2つ分取得
+a.first #=> 最初の要素を取得
+a.first(2) #=> 最初の要素から2つを取得
+
+b = [1,2,3,4,5]
+b[-3] = 10 #=> 後ろから3要素目を10に置き換える
+
+c = [1,2,3,4,5]
+c[1, 3] = 100 #=> 2つ目から3要素分を100に置き換える
+
+d = []
+d << 2
+d.push(1,2,3) #=> 複数の要素を末尾に追加
+
+e = [1,2,3,1,2,3]
+e.delete(2) #=> 削除した値が戻り値になる 2
+
+# 配列の連結
+a = [1]
+b = [2,3]
+a.concat(b) #=> [1,2,3]
+p a #=> 変更される（破壊的） [1, 2, 3]
+p b #=> 変更されない [2, 3]
+
+a = [1]
+b = [2,3]
+a + b #=> [1,2,3] なるべくこっち使う
+p a #=> 変更されない [1]
+p b #=> 変更されない [2, 3]
+
+# 配列の和集合、差集合、積集合
+a = [1,2,3]
+b = [3,4,5]
+# どれも非破壊的
+a | b #=> 和集合(|) [1, 2, 3, 4, 5]
+a - b #=> 差集合(-) 右の配列から左の配列に含まれる要素を取り除く [1, 2]
+a & b #=> 積集合(&) 2つの配列に共通する要素を返す [3]
+
+# ※本格的な集合演算をする場合はSetクラスを使用する。効率的
+require 'set'
+
+a = Set.new([1,2,3])
+b = Set.new([3,4,5])
+p a | b #=> #<Set: {1, 2, 3, 4, 5}>
+p a - b #=> #<Set: {1, 2}>
+p a & b #=> #<Set: {3}>
+
+# 多重代入で残りの全要素を配列として受け取る
+e,*f = 100, 200, 300
+p e #=> 100
+p f #=> [200, 300]
+
+# 1つの配列を複数の引数として展開する
+a = []
+a.push(1)
+a.push(2,3) #=> [1, 2, 3]
+
+a = []
+b = [2,3]
+a.push(1)
+a.push(b) #=> [1,[2,3]]
+
+# 1つの配列、ではなく複数の引数として渡すには * をつける
+# *で配列を展開できる
+a = []
+b = [2,3]
+a.push(1)
+a.push(*b) #=> [1,2,3]
+```
+
+## メソッドの可変長引数
+```rb
+# 個数に制限のない引数のこと = 可変長引数
+def メソッド名(引数1, 引数2, *可変長引数) #=> * つける
+  # メソッドの処理
+end
+# 可変長引数は配列として受け取れる
+def greeting(*name)
+  "#{name.join('と')}、こんにちは"
+end
+greeting('田中さん') #=> "田中さん、こんにちは"
+greeting('田中さん', '鈴木さん') #=> "田中さんと鈴木さん、こんにちは"
+greeting('田中さん', '鈴木さん', '佐藤さん') #=> "田中さんと鈴木さんと佐藤さん、こんにちは"
+```
+
+## 配列つづき
+```rb
+# * で配列同士を非破壊的に連結する
+a = [1,2,3]
+p [a] #=> 配列の配列になる [[1, 2, 3]]
+p [*a] #=> 展開されて別の要素になる [1, 2, 3]
+
+a = [1,2,3]
+b = [-1, 0, *a, 1, 2, 3] #=> [-1, 0, 1, 2, 3, 1, 2, 3] 簡潔
+c = [-1,0] + a + [1,2,3] #=> [-1, 0, 1, 2, 3, 1, 2, 3]
+
+# == で等しい配列かどうか判断する
+[1,2,3] == [1,2,3] #=> true
+[1,2,3] == [1,2,4] #=> false
+[1,2,3] == [1,2,3,4] #=> false
+
+# %で文字列の配列を完結に作る
+# % %w %W
+['apple','melon','orange'] #=>  ["apple", "melon", "orange"]
+%w!apple melon orange! #=> ["apple", "melon", "orange"]
+%w(apple melon orange) #=> ["apple", "melon", "orange"]
+%w(big\ apple small\ melon large\ orange) #=> ["big apple", "small melon", "large orange"]
+# 式展開や　改行、タブ文字を入れたい場合は大文字のW
+prefix = 'This is'
+%W(#{prefix}\ an\ apple small\nmelon big\torange) #=> 略
+
+# 文字列を配列に変換する
+# charsメソッドとsplitメソッド
+'Ruby'.chars #=> ["R", "u", "b", "y"]
+'Ruby,Java,Perl,PHP'.split(',') #=> ["Ruby", "Java", "Perl", "PHP"]
+
+# 配列に初期値を設定する
+# []ではなくArray.new
+a = Array.new(5) #=> [nil, nil, nil, nil, nil]
+b = Array.new(5, 0) #=> [0, 0, 0, 0, 0]
+# ブロックを使って初期値を設定
+c = Array.new(10) {|n| n % 3 + 1} #=> [1, 2, 3, 1, 2, 3, 1, 2, 3, 1]
+
+# 配列に初期値を設定する場合の注意点
+a = Array.new(5, 'default') #=> 要素が5つで初期値defaultの配列
+str = a[0] #=> 初期値を取得
+str.upcase! #=> 1番目[0]の要素を大文字に変換
+p a #=> 全て大文字になってる！！ ["DEFAULT", "DEFAULT", "DEFAULT", "DEFAULT", "DEFAULT"]
+
+# 配列の全要素が同じ文字列のオブジェクトを参照しているために発生した
+# 回避のためにはブロックで初期値を渡すべし
+a = Array.new(5) { 'default' } #=> ["default", "default", "default", "default", "default"]
+str = a[0]
+str.upcase!
+a #=> 先頭の要素のみ大文字に！ ["DEFAULT", "default", "default", "default", "default"]
+```
+
+# ミュータブルとイミュータブル
+```
+ミュータブル(mutable) 変更可能な(オブジェクト)
+イミュータブル(immutable) 変更できない、不変の(オブジェクト)
+
+mutable 破壊的変更が過適用可能
+ブロックを使用せずに初期値を指定すると不具合
+- String
+
+immutable 破壊的な変更が適用不可
+- 数値(Integer、Float など)
+- Symbol
+- TrueClass、FalseClass
+- NilClass
+
+ミュータブルなオブジェクトはfreezeメソッドを使って変更不可にすることもできる！
+```
