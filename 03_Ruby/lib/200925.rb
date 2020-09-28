@@ -31,3 +31,26 @@ p a
 p a << 'PQR'
 
 # 4.8 ブロックについてもっと詳しく
+
+# 4.8.1 添え字付きの繰り返し処理
+# each_with_indexメソッド
+fruits = ['apple', 'orange', 'melon']
+fruits.each_with_index { | fruit, i| puts "#{i}: #{fruit}"}
+#=> 0: apple
+#=> 1: orange
+#=> 2: melon
+
+# 4.8.2
+# with_indexメソッド
+fruits = ['apple', 'orange', 'melon']
+# mapとして処理しつつ添え字も受け取る
+p fruits.map.with_index { |fruit, i| "#{i}: #{fruit}" }
+#=> ["0: apple", "1: orange", "2: melon"]
+
+# map以外とも組み合わせることができる
+# 名前にaを含みかつ添え字が奇数である要素を削除
+p fruits.delete_if.with_index { |fruit, i| fruit.include?('a') && i.odd? }
+
+# with_indexメソッドはEnumeratorクラスのインスタンスメソッド
+# ブロックなしでメソッドを呼ぶとEnumeratorオブジェクトが帰る。よってwith_indexメソッドが呼び出せる
+

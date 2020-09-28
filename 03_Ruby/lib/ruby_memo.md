@@ -262,12 +262,12 @@ numbers.each { |n| new_numbers << n *10 }
 # map
 # ブロックの戻り値が配列の要素となる新しい配列が作成されるため、mapメソッドの戻り値をそのまま新しい変数に入れることができる
 numbers = [1,2,3,4,5]
-new_numbers = numbers.map { |n| n *10 }
+new_numbers = numbers.map { |n| n *10 } #=> [10, 20, 30, 40, 50]
 
 # select(エイリアスメソッドはfind_all)
 numbers = [1,2,3,4,5,6]
 # ブロックの戻り値が真になった要素だけが集められる
-even_numbers = numbers.select { |n| n.even? }
+even_numbers = numbers.select { |n| n.even? } #=> [2, 4, 6]
 
 # reject
 numbers = [1,2,3,4,5,6]
@@ -604,4 +604,36 @@ immutable 破壊的な変更が適用不可
 - NilClass
 
 ミュータブルなオブジェクトはfreezeメソッドを使って変更不可にすることもできる！
+```
+
+# ブロックについて
+```rb
+# each_with_indexメソッド
+fruits = ['apple', 'orange', 'melon']
+fruits.each_with_index { | fruit, i| puts "#{i}: #{fruit}"}
+#=> 0: apple
+#=> 1: orange
+#=> 2: melon
+
+# with_indexメソッド
+fruits = ['apple', 'orange', 'melon']
+# mapとして処理しつつ添え字も受け取る
+p fruits.map.with_index { |fruit, i| "#{i}: #{fruit}" }
+#=> ["0: apple", "1: orange", "2: melon"]
+
+# map以外とも組み合わせることができる
+# 名前にaを含みかつ添え字が奇数である要素を削除
+p fruits.delete_if.with_index { |fruit, i| fruit.include?('a') && i.odd? }
+
+# with_indexメソッドはEnumeratorクラスのインスタンスメソッド
+# ブロックなしでメソッドを呼ぶとEnumeratorオブジェクトが帰る。よってwith_indexメソッドが呼び出せる
+
+# 添字を0以外の数値から開始させる
+fruits = ['apple', 'orange', 'melon']
+# eachで繰り返しつつ1から始まる添字を取得
+fruits.each.with_index(1){ |fruit, i| puts "#{i}: #{fruit}" }
+```
+
+```rb
+
 ```
