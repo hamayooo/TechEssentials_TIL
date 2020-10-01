@@ -635,5 +635,73 @@ fruits.each.with_index(1){ |fruit, i| puts "#{i}: #{fruit}" }
 ```
 
 ```rb
+# 配列ガブロック引数に渡される場合
+dimensions = [
+  # [縦, 横]
+  [10, 20],
+  [30, 40],
+  [50, 60]
+]
+areas = [] #=> 面積の計算結果を入れる
+# ブロック引数が1個であれば、ブロック引数の値が配列になる
+dimensions.each do |dimension|
+  length = dimension[0]
+  width = dimension[1]
+  areas << length * width
+end
+areas #=> [200, 1200, 3000]
 
+# ブロック引数を複数（配列の要素分だけ）用意すると、各要素の値が別々に変数に格納される
+# 元の配列より多く指定した場合はnilになる
+areas = []
+dimensions.each do |length, width|
+  areas << length * width
+end
+areas #=> [200, 1200, 3000]
+
+# each_with_index もとから2つの引数を取る場合、受け取るブロック引数を()で囲むと配列を別々の引数として受け取れる
+dimensions.each_with_index do |(length, width), i|
+  puts "length: #{length}, width: #{width}, i: #{i}"
+end
 ```
+
+```rb
+# 繰り返し処理以外でも使用されるブロック
+# sample.txtを開いて文字列を書き込む（クローズ処理は自動的に行われる）
+File.open("./sample.txt", "w")do |file|
+  file.puts("1 line")
+  file.puts("2 line")
+  file.puts("3 line")
+end
+
+# {}をブロックとして使う場合は()を省略できない！
+# p a.delete 100 { 'NG' } #=> syntax error
+# p a.delete(100) { 'NG' }
+a = [1,2,3]
+p a.delete(100)
+a.delete(100) do
+  p 'NG'
+end
+
+a.delete 100 do
+  p 'NG' #=> 100 {'NG'}と解釈される。100はただの数値でメソッドではないのでブロック引数を渡せずに構文エラーになる
+end
+
+# ブロックを使うメソッドは自分で定義できる
+names = ['田中','佐藤','鈴木']
+san_names = names.map { |name| "#{name}さん"}
+san_names.join('と') #=> "田中さんと佐藤さんと鈴木さん"
+
+# 1行で書ける。ブロック位の後ろに.を書く
+names.map { |name| "#{name}さん" }.join('と') #=> "田中さんと佐藤さんと鈴木さん"
+
+# endの後ろにも付けられる
+names_to = names.map do |name|
+  "#{name}さん"
+end.join('と') 
+names_to #=> "田中さんと佐藤さんと鈴木さん"
+```
+
+# ★配列をいじったりするばあいはAPIも見る！
+(ArrayクラスAPIドキュメント)[https://docs.ruby-lang.org/ja/latest/class/Array.html]
+(EnumerableクラスAPIドキュメント)[https://docs.ruby-lang.org/ja/latest/class/Enumerable.html]
