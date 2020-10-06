@@ -289,7 +289,7 @@ sum = numbers.inject(0) { |result, n| result + n}
 初回のみresultにinjectメソッドの0が入る
 2回目以降はブロックの戻り値がresultに入る
 ブロックの第二引数nには配列の各要素が入る
-最後まで終わる戸ブロックの戻り値がinjectメソッドの戻り値になる
+最後まで終わるとブロックの戻り値がinjectメソッドの戻り値になる
 ((((0+1)+2)+3)+4)を行ったことになる
 =end
 day = ['Mon','Tue','Wed','Thu','Fri','Sat'].inject('Sun') { |result, s| result + s }
@@ -705,3 +705,332 @@ names_to #=> "田中さんと佐藤さんと鈴木さん"
 # ★配列をいじったりするばあいはAPIも見る！
 (ArrayクラスAPIドキュメント)[https://docs.ruby-lang.org/ja/latest/class/Array.html]
 (EnumerableクラスAPIドキュメント)[https://docs.ruby-lang.org/ja/latest/class/Enumerable.html]
+
+
+# 繰り返し処理
+```rb
+# timesメソッド
+sum = 0
+# 5回繰り返す
+5.times { |n| sum += n }
+sum #=> 10
+
+# uptoメソッド / downtoメソッド
+a = []
+-1.upto(14) { |n| a << n }
+a #=> [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+a = []
+9.downto(-4) { |n| a << n }
+a #=> [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4]
+
+# stepメソッド
+a = []
+# 1から10まで2つずつ
+1.step(10, 2) { |n| a << n }
+a #=> [1, 3, 5, 7, 9]
+
+a = []
+# 10から1まで-2つずつ
+10.step(1, -2) { |n| a << n }
+a #=> [10, 8, 6, 4, 2]
+
+# whileとuntil
+## while 条件式（真であれば実行）
+##   繰り返したい処理
+## end
+a = []
+while a.size < 5
+  a << 1
+end
+a #=> [1, 1, 1, 1, 1]
+
+a = []
+# do を入れると1行で
+while a.size < 5 do a << 1 end
+a #=> [1, 1, 1, 1, 1]
+
+a = []
+# 修飾子としてwhileを後ろに置くほうがきれい
+a << 1 while a.size < 5
+a #=> [1, 1, 1, 1, 1]
+
+a = []
+while false #=> 偽になるので実行されない
+  a << 1
+end
+a #=> []
+
+begin #=> begin...end で囲むとどんな条件でも最低1回は実行される
+  a << 1
+end while false
+a #=> [1]
+
+## untile 条件式（偽であれば実行）
+##   繰り返したい処理
+## end
+
+a = [10,20,30,40,50]
+until a.size <= 3
+  a.delete_at(-1)
+end
+a #=> [10, 20, 30]
+
+# for文
+## for 変数 in 配列やハッシュ（eachメソッドを定義しているオブジェクトであれば何でもOK）
+##   繰り返し処理
+## end
+
+numbers = [1,2,3,4]
+sum = 0
+for n in numbers
+  sum += n
+end
+sum #=> 10
+
+sum = 0
+for n in numbers do sum += n end
+sum #=> 10
+
+numbers = [1,2,3,4]
+sum = 0
+numbers.each do |n|
+  sum += n
+end
+sum #=> 10
+
+numbers = [1,2,3,4]
+sum = 0
+numbers.each do |n|
+  sum_value = n.even? ? n * 10 : n
+  sum += sum_value
+end
+n #=> NameError
+sum_value #=> NameError
+
+sum = 0
+for n in numbers
+  sum_value = n.even? ? n * 10 : n
+  sum += sum_value
+end
+n #=> 4
+sum_value #=> 40
+
+# loopメソッド
+# while true
+#   #無限ループ用の処理
+# end
+
+# loop do
+#   # 無限ループ用の処理
+# end
+
+numbers = [1,2,3,4,5]
+loop do
+  # sample メソッドでランダムに要素を1つ取得する
+  n = numbers.sample
+  puts n
+  break if n == 5
+end
+
+#whileで書く
+while true
+  n = numbers.sample
+  puts n
+  break if n == 5
+end
+```
+
+# 繰り返し処理の制御構造
+- break
+- next
+- redo
+
+```rb
+# Enumerableモジュールに定義されているmapメソッド、selectメソッド
+# Arrayクラス、RangeクラスEnumeratorクラス（uptoメソッドの戻り値）はEnumerableモジュールをインクルードしているため、Enumerableモジュールのメソッドが使える
+1.upto(5).class #=> Enumerator
+
+# 4.10 繰り返し処理用の制御
+# break
+# shuffleメソッド:配列の要素をランダムに並び替える
+numbers = [1,2,3,4,5].shuffle
+numbers.each do |n|
+  puts n
+  # 5が出たら繰り返しを抜ける
+  break if n == 5
+end
+
+# while内で使う
+numbers = [1,2,3,4,5].shuffle
+i = 0
+while i < numbers.size
+  n = numbers[i]
+  puts n
+  break if n == 5
+  i += 1
+end
+
+# breakに引数を渡すとwhile文やfor文の戻り値になる。引数を渡さないとnil
+ret = 
+  while true
+    break
+  end
+p ret #=> nil
+
+ret =
+  while true
+    break 123
+  end
+p ret #=> 123
+
+# 繰り返しが入れこのときは１番内側を抜ける
+fruits = ['apple', 'melon', 'orange']
+numbers = [1,2,3]
+fruits.each do |fruit|
+  numbers.shuffle.each do |n|
+    puts "#{fruit}, #{n}"
+    # numbersループは抜けるがfruitsループは継続
+    break if n == 3
+  end
+end
+
+# throwとcatch
+# 一気に外側のループも抜ける。Kernelモジュールのthrowメソッドとcatchメソッドを使う。例外処理とは関係ない！なんと！
+
+# catch タグ do
+#   # 繰り返し処理など
+#   throw タグ
+# end
+
+fruits = ['apple', 'melon', 'orange']
+numbers = [1,2,3]
+catch :done do #=> シンボル
+  fruits.shuffle.each do |fruit|
+    numbers.shuffle.each do |n|
+      puts "#{fruit}, #{n}"
+      if fruit == 'orange' && n == 3
+        # 全ての繰り返しを脱出
+        throw :done #=> catchと一致しない場合はエラー
+      end
+    end
+  end
+end
+
+# throwメソッドに第２引数を渡すとcatchメソッドの戻り値になる
+# 繰り返し処理無くても動くけど繰り返しの脱出で使われることが多い
+ret = 
+  catch :done do
+    throw :done
+  end
+p ret
+
+ret = 
+  catch :done do
+    throw :done, 123
+  end
+p ret
+
+# next
+numbers = [1,2,3,4,5]
+numbers.each do |n|
+  next if n.even?
+  puts n
+end
+
+numbers = [1,2,3,4,5]
+i = 0
+while i < numbers.size
+  n = numbers[i]
+  i += 1
+  next if n.even?
+  puts n
+end
+
+fruits = ['桃', '苺', '葡萄']
+numbers = [1,2,3,4,5]
+fruits.each do |fruit|
+  numbers.each do |n|
+    next if n.even?
+    puts "#{fruit}, #{n}"
+  end
+end
+
+# redo
+# 繰り返し処理をやり直す
+foods = ['ピーマン','トマト','セロリ']
+foods.each do |food|
+  print "#{food}はすきですか？"
+  answer = ['はい','いいえ'].sample
+  puts answer
+
+  # はいでなければもう一度聞き返す
+  redo unless answer == 'はい'
+end
+```
+
+# ハッシュ
+```rb
+currencies = {'japan' => 'yen', 'us' => 'dollar', 'india' => 'rupee'}
+
+# イタリアの硬貨を追加する
+currencies['italy'] = 'euro'
+currencies #=> {"japan"=>"yen", "us"=>"dollar", "india"=>"rupee", "italy"=>"euro"}
+
+# 既存の値を上書きする
+currencies['japan'] = '円'
+currencies #=> {"japan"=>"円", "us"=>"dollar", "india"=>"rupee", "italy"=>"euro"}
+
+# 値を取得する
+currencies['india'] #=> "rupee"
+currencies['brazil'] #=> nil
+
+# ハッシュを使った繰り返し処理
+currencies = {'japan' => 'yen', 'us' => 'dollar', 'india' => 'rupee'}
+# 引数2つ!
+currencies.each do |key, value|
+  puts "#{key} : #{value}"
+end
+
+# ブロック引数を1つにすると、値が配列に格納される
+currencies = {'japan' => 'yen', 'us' => 'dollar', 'india' => 'rupee'}
+
+currencies.each do |key_value|
+  key = key_value[0]
+  value = key_value[1]
+  puts "#{key} : #{value}"
+end
+
+currencies.size #=> 3
+currencies.delete('japan')
+currencies #=>{"us"=>"dollar", "india"=>"rupee"}
+
+# ブロックを渡すとキーが見つからないときの戻り値を作成できる
+currencies.delete('italy') { |key| "Not found: #{key}" } #=> "Not found: italy"
+```
+
+```rb
+
+```
+
+# シンボル
+```rb
+# シンボル
+# 文字列と同じだけどクラスが違う
+:apple.class #=> Symbol
+'apple'.class #=> String
+
+# 文字列より高速に処理できる
+p :apple.object_id #=> 1000988 同じ
+p :apple.object_id #=> 1000988 同じ
+p :apple.object_id #=> 1000988 同じ
+
+p 'apple'.object_id #=> 70254618135700 違う
+p 'apple'.object_id #=> 70254618135620 違う
+p 'apple'.object_id #=> 70254618135540 違う
+
+# ★特徴
+# - 内部的には整数なので高速に値を比較できる
+# - 同じシンボルは同じオブジェクトのためメモリ使用効率がよい
+# - イミュータブルオブジェクトのため勝手に値が書き換えられない
+```
