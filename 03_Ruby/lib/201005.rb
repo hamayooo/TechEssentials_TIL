@@ -83,9 +83,19 @@ buy_burger('cheese', drink: true, potate: true)
 buy_burger('fish', drink: true, potate: false)
 
 # キーワード引数にはデフォルト値が設定される
-# デフォルト値を書いてない場合は省略不可
 buy_burger('cheese') #=> drink,potate はデフォtrueなので指定しない
 buy_burger('fish', potate: false) #=> drinkはデフォtrueなので指定しない
 
 # キーワード引数は呼び出し時の順番自由！
 buy_burger('fish', potate: false, drink: true)
+
+# デフォルト値を書いてない場合は省略不可
+def buy_burger(menu, drink:, potate:)
+  #省略
+end
+buy_burger('fish', drink: true, potate: true) 
+buy_burger('fish', potate: false) #=> エラー。省略しちゃダメ
+
+# キーワード引数を使うメソッドを呼び出す場合、キーワード引数に一致するハッシュ（キーはシンボル）を引数として渡すことができる
+params = {drink: true, potate: false}
+buy_burger('fish', params)

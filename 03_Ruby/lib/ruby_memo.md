@@ -1009,10 +1009,6 @@ currencies #=>{"us"=>"dollar", "india"=>"rupee"}
 currencies.delete('italy') { |key| "Not found: #{key}" } #=> "Not found: italy"
 ```
 
-```rb
-
-```
-
 # シンボル
 ```rb
 # シンボル
@@ -1034,3 +1030,230 @@ p 'apple'.object_id #=> 70254618135540 違う
 # - 同じシンボルは同じオブジェクトのためメモリ使用効率がよい
 # - イミュータブルオブジェクトのため勝手に値が書き換えられない
 ```
+
+# ハッシュとシンボル
+```rb
+# ハッシュのキーにシンボルを使う
+currencies  = { :japan => 'yen', :us => 'dollar', :india => 'rupee'}
+currencies[:us] #=> 呼び出し
+currencies[:italy] = 'euro' #=> 追加
+
+# シンボルがキーになる場合はシンボル： 値でハッシュを作成可能
+currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
+
+# キーも値もシンボルの場合
+currencies = { japan: :yen, us: :dollar, india: :rupee}
+currencies[:us] #=> 呼び出し
+currencies = { :japan => :yen, :us => :dollar, :india => :rupee} #=> 同じ
+
+# 文字列のキーとハッシュのキーを混在させる
+hash = { 'abc' => 123, def: 456} #=> やらない
+hash[:def]
+hash['abc']
+
+person = { #=> こういう場合はありそう
+  # 値が文字列
+  name: 'Alice',
+  # 値が数値
+  age: 20,
+  # 値が配列
+  friends: ['Bob', 'Carol'],
+  # 値がハッシュ
+  phones: { home: '123-0002', mobile: '3456-1234'}
+}
+
+person[:name]
+person[:age]
+person[:friends]
+person[:phones][:mobile] #=> 値がハッシュだったときの呼び出し方
+
+# メソッドのキーワード引数とハッシュ
+def buy_burger(menu, drink, potate)
+  # ハンバーガーを購入
+  if drink
+    # ドリンクを購入
+  end
+  if potate
+    # ポテトを購入
+  end
+end
+
+# チーズバーガーとドリンクとポテトを購入する
+buy_burger('cheese', true, true)
+# フィッシュバーガーとドリンクを購入する
+buy_burger('fish', true, false)
+
+# が、これだけだとメソッド見ても分かりづらいので、メソッドのキーワード引数を使う
+def メソッド名(キーワード引数1 : デフォルト値)
+  # メソッドの実装
+end
+
+# シンボル:値　の形式で引数を指定する
+def buy_burger(menu, drink: true, potate: true)
+  # 略
+end
+
+# 引数の役割が明確に
+buy_burger('cheese', drink: true, potate: true)
+buy_burger('fish', drink: true, potate: false)
+
+# キーワード引数にはデフォルト値が設定される
+buy_burger('cheese') #=> drink,potate はデフォtrueなので指定しない
+buy_burger('fish', potate: false) #=> drinkはデフォtrueなので指定しなくてもOK
+
+# キーワード引数は呼び出し時の順番自由
+buy_burger('fish', potate: false, drink: true)
+
+# デフォルト値を書いてない場合は省略不可
+def buy_burger(menu, drink:, potate:) #=> 値無くてもOK
+  #省略
+end
+buy_burger('fish', drink: true, potate: true) 
+buy_burger('fish', potate: false) #=> エラー。省略しちゃダメ
+
+# キーワード引数を使うメソッドを呼び出す場合、キーワード引数に一致するハッシュ（キーはシンボル）を引数として渡すことができる
+params = {drink: true, potate: false}
+buy_burger('fish', params)
+```
+
+# ハッシュ詳しく
+```
+よく使うメソッド
+keys
+values
+has_key?/key?/include?/member?
+```
+
+```rb
+# keys
+currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
+currencies.keys #=> [:japan, :us, :india]
+
+# values
+currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
+currencies.values #=> ["yen", "dollar", "rupee"]
+
+# has_key?/key?/include?/member? > has_key?のエイリアスメソッド
+currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
+currencies.has_key?(:japan) #=> true
+currencies.has_key?(:italy) #=> false
+
+# API参照
+# https://docs.ruby-lang.org/ja/latest/class/Hash.html
+# https://docs.ruby-lang.org/ja/latest/class/Enumerable.html
+
+# ハッシュの展開
+h = { us: 'dollar', india: 'rupee' }
+# 変数hのキーと値を**で展開 **を付けないと構文エラーに
+{ japan: 'yen', **h } #=> {:japan=>"yen", :us=>"dollar", :india=>"rupee" }
+
+# **の代わりにmergeメソッド
+{ japan: 'yen' }.merge(h) #=> {:japan=>"yen", :us=>"dollar", :india=>"rupee" }
+
+# ハッシュを使った疑似キーワード引数
+def buy_burger(menu, options = {})
+  drink = options[:drink]
+  pogate = options[:potate]
+  #省略
+end
+buy_burger('cheese', drink: true, potate: true)
+
+# 任意のキーワードを受け付ける **引数
+def buy_burger(menu, drink: true, potate: true, **other)
+  # 省略
+end
+buy_burger('fish', drink: true, potate: false, salad: true, chicken: false) #=> {:salad => true, :chicken => false}
+
+# メソッドの呼び出し時の{}の省略
+# 最後の引数がハッシュであればハッシュリテラルの{}を省略できる
+# optionsは任意のハッシュを受け付ける
+def buy_burger(menu, options = {})
+  # 省略
+end
+
+# ハッシュを第2引数として渡す
+buy_burger('fish', {'drink' => true, 'porate' => false}) #=> {"drink" => true, "porate" => false}
+
+# ハッシュリテラル{}を省略してメソッドを呼び出す
+buy_burger('fish', 'drink' => true, 'porate' => false)
+
+# 最後の引数がハッシュじゃないとエラー、最後ではない場所でハッシュを引数に使いたい場合は、{}を付けて普通にハッシュを作成する
+
+# ハッシュリテラルの{}とブロックの{}
+# ※気付けるか
+def buy_burger(options = {}, menu)
+  puts options
+end
+buy_burger({'drink' => true, 'potate' => false}, 'fish')
+# メソッド呼び出しのカッコを外してみる
+buy_burger{'drink' => true, 'potate' => false}, 'fish' #=> 構文エラー。ブロックと解釈されるため
+# 第一引数にハッシュを渡す場合は必ず()を付けてメソッドを呼び出す
+# 第二引数にハッシュを渡す場合は()を省略できる
+buy_burger 'fish', {'drink' => true, 'potate' => false}  #=> OK
+# 更に最後の引数がハッシュの場合は{}を省略できる
+buy_burger 'fish', 'drink' => true, 'potate' => false
+
+# ハッシュから配列へ、配列からハッシュへ
+# to_aでハッシュから配列へ
+currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
+currencies.to_a #=> [[:japan, "yen"], [:us, "dollar"], [:india, "rupee"]]
+
+# to_hで配列からハッシュへ
+array = [[:japan, "yen"], [:us, "dollar"], [:india, "rupee"]]
+array.to_h #=> {:japan=>"yen", :us=>"dollar", :india=>"rupee"}
+
+array = [1,2,3,4]
+# array.to_h #=> TypeError
+
+# キーが重複した場合は最後に登場した配列の要素がハッシュの値に採用される
+array = [[:japan, "yen"], [:japan, "円"]]
+array.to_h #=> {:japan=>"円"}
+
+# 古いバージョンはキーと値のペアの配列をHash[]に渡していた
+array = [[:japan, 'yen'],[:us, 'dollar'],[:india, 'rupee']]
+Hash[array] #=> {:japan=>"yen", :us=>"dollar", :india=>"rupee"}
+
+# キーと値が交互に並ぶフラットな配列をsplat展開してもよい
+array = [:japan, "yen", :us, "dollar", :india, "rupee"]
+Hash[*array] #=> {:japan=>"yen", :us=>"dollar", :india=>"rupee"}
+
+# ハッシュの初期値を理解する
+# キーがなければハッシュを返す
+h = Hash.new('hello')
+h[:foo]
+h[:bar]
+# ※ 初期値は毎回同じオブジェクトを返す。そのため初期値に破壊的な変更を加えると、他の変数も一緒に変わる
+
+a = h[:foo]
+b = h[:bar]
+a.equal?(b) #=> true 同じオブジェクト
+
+a.upcase!
+a #=> HELLO 破壊的に変更
+b #=> HELLO
+h #=> {} ハッシュ自身は空のまま
+
+# Hash.newとブロックを組み合わせて初期値を返すことで、ミュータブルなオブジェクトを初期値として返せる
+h = Hash.new{ 'hello' }
+a = h[:foo] #=> "hello"
+b = h[:bar] #=> "hello"
+
+# 変数aと変数bは異なるオブジェクト！
+a.equal?(b) #=> false
+
+# 変数aには快適な変更をしても変数bの値は変わらない
+a.upcase!
+a #=> "HELLO"
+b #=> "hello"
+h #=> {} ハッシュ自身は空のまま
+
+# Hash.newにブロックを与えると、初期値だけじゃなくハッシュに指定されたキーと初期値を同時に指定する
+h = Hash.new{ |hash, key| hash[key] = 'hello' }
+a = h[:foo]
+b = h[:bar]
+a #=> "hello"
+b #=> "hello"
+h #=> {:foo=>"hello", :bar=>"hello"} ハッシュにキーと値が追加されている
+```
+
+# シンボル詳しく
