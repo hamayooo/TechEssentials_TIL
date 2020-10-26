@@ -1257,3 +1257,372 @@ h #=> {:foo=>"hello", :bar=>"hello"} ハッシュにキーと値が追加され�
 ```
 
 # シンボル詳しく
+```rb
+# シンボル詳しく
+:apple #=> the シンボル
+:$dollar #=> グローバル変数の識別子
+:@at_mark #=> インスタンス変数の識別子
+
+# これはエラー
+:1234
+:ruby-is-fun
+:ruby is fun
+:()
+
+# 式展開もできる
+name = 'Alice'
+p :"#{name.upcase}" #=> :ALICE 
+
+# ハッシュを作成する際に文字列：値の形式で書いても:文字列とみなされキーがシンボルになる
+hash = { 'abc': 123 }
+p hash #=> {:abc=>123}
+
+# %s記法でシンボルを作成
+p %s!ruby is fun! #=> :"ruby is fun"
+
+# ()を区切り文字に
+p %s(ruby is fun) #=> :"ruby is fun"
+
+# シンボルの配列を作るときは%i
+p %i(apple orange melon) #=> [:apple, :orange, :melon]
+
+# 改行含めたり、式展開する場合は%I(I大文字)
+name = "Alice"
+p %I(hello\ngood-bye #{name.upcase}) #=> [:"hello\ngood-bye", :ALICE]
+
+# to_symメソッド（エイリアス > intern）で文字列をシンボルに変換
+string = 'apple'
+symbol = :apple
+p string.to_sym #=> :apple
+p string.to_sym == symbol #=> true
+
+# to_sメソッド(エイリアス > id2name)でシンボルを文字列に変換
+string = 'apple'
+symbol = :apple
+p symbol.to_s #=> "apple"
+p string == symbol.to_s #=> true
+p string +  symbol.to_s #=> "appleapple"
+```
+
+# まとめ
+```
+・ハッシュとシンボル
+・5章繰り返し読むべし
+```
+
+
+# 正規表現
+```
+正規表現のなんたるかはQiitaで学べ その1~4
+https://qiita.com/jnchito/items/893c887fbf19e17d3ff9
+https://qiita.com/jnchito/items/64c3fdc53766ac6f2008
+https://qiita.com/jnchito/items/6f0c885c1c4929092578
+https://qiita.com/jnchito/items/b0839f4f4651c29da408
+```
+
+```rb
+regex = /\d{3}-\d{4}/
+regex.class #=> Regexp
+
+# =~:マッチした場合はマッチした文字列の開始位置が返る（true）
+'123-4567' =~  /\d{3}-\d{4}/ #=> 0
+
+# マッチしない場合はnil
+'hello' =~  /\d{3}-\d{4}/ #=> nil
+
+# if文などでよく使う
+if '123-4567' =~ /\d{3}-\d{4}/
+  puts 'マッチしました'
+else
+  puts 'マッチしませんでした'
+end
+
+# !~:マッチしなければtrue
+'hello' !~  /\d{3}-\d{4}/ #=> true
+'123-4567' !~  /\d{3}-\d{4}/ #=> false
+
+# Rubularでいろいろと
+# https://rubular.com/
+
+# 正規表現のキャプチャを利用する
+text = '私の誕生日は1977年7月17日です'
+m = /(\d+)年(\d+)月(\d+)日/.match(text)
+m[0] #=> "1977年7月17日"
+m[1] #=> "1977"
+m[2] #=> "7"
+m[3] #=> "17"
+
+# 処理結果を配列と同じような方法で取得
+m[2,2] #=> ["7", "17"]
+m[-1] #=> "17"
+m[1..3] #=> ["1977", "7", "17"]
+
+# matchメソッドはStringクラスとRegexpクラスの両方に定義されてる。文字列と正規表現オブジェクトを入れ替えても同じ様に動く
+text = '私の誕生日は1977年7月17日です'
+m = text.match(/(\d+)年(\d+)月(\d+)日/)
+m #=> #<MatchData "1977年7月17日" 1:"1977" 2:"7" 3:"17">
+
+# ?<name> メタ文字を使って名前をつける
+text = '私の誕生日は1977年7月17日です'
+m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
+# シンボルで名前を指定してキャプチャの結果を取得
+m[:year] #=> "1977"
+m[:month] #=> "7"
+m[:day] #=> "17"
+m['year'] #=> "1977" 文字列もOK
+m[2] #=> "7" 連番も指定OK
+
+# 左辺に正規表現リテラル、右辺に文字列を置いて=~演算子を使うとキャプチャの名前がローカル変数に割り当てられる
+# - 右辺と左辺を入れ替えると使えない
+# - 一旦変数に入れても使えない。直接左辺に置く
+text = '私の誕生日は1977年7月17日です'
+if /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/ =~ text
+  puts "#{year}/#{month}/#{day}"
+end #=> 1977/7/17
+
+
+# 正規表現と一緒に使うと便利なStringクラスのメソッド
+# - scan マッチすると配列に入れて返す
+'123 456 789'.scan(/\d+/) #=> ["123", "456", "789"]
+'1977年7月17日 2016年12月31日'.scan(/(\d+)年(\d+)月(\d+)日/) #=> [["1977", "7", "17"], ["2016", "12", "31"]]
+# グループ化はしたいがキャプチャはしたくない場合は(?:)
+'1977年7月17日 2016年12月31日'.scan(/(?:\d+)年(?:\d+)月(?:\d+)日/) #=> ["1977年7月17日", "2016年12月31日"]
+'1977年7月17日 2016年12月31日'.scan(/\d+年\d+月\d+日/) #=> 簡単に書く["1977年7月17日", "2016年12月31日"]
+
+# - [], slice, slice! 文字列から正規表現にマッチした部分を抜き出す
+text = '郵便番号は123-4567'
+text[/\d{3}-\d{4}/] #=> "123-4567"
+text = '123-3456 345-4678'
+text[/\d{3}-\d{4}/]  #=> "123-3456" マッチした最初の文字列が帰る
+
+# キャプチャを使うと第２引数で取得するキャプチャを指定できる
+text = '誕生日は1977年7月17日です'
+text[/(\d+)年(\d+)月(\d+)日/] #=> "1977年7月17日"
+text[/(\d+)年(\d+)月(\d+)日/, 3] #=> "17"
+
+# 名前付きキャプチャであれば名前で指定することもできる
+text = '誕生日は1977年7月17日です'
+text[/(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/, :day] #=> 17
+text[/(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/, 'day'] #=> 17
+
+# sliceメソッドは[]のエイリアスメソッド
+text = '郵便番号は123-4567'
+text.slice(/\d{3}-\d{4}/) #=> "123-4567"
+
+text = '誕生日は1977年7月17日です'
+text.slice(/(\d+)年(\d+)月(\d+)日/, 3) #=> "17"
+
+# slice!にすると破壊的に取り除かれる
+text = '郵便番号は123-4567です'
+text.slice!(/\d{3}-\d{4}/) #=> "123-4567"
+text #=> "郵便番号はです"
+
+# split
+text = '123,456-789'
+text.split(',') #=> ["123", "456-789"]
+text.split(/,|-/) #=> ["123", "456", "789"]
+
+# gsub, gsub! 第二引数の文字列で置き換える
+text = '123,456-789'
+text.gsub(',', ':') #=> "123:456-789"
+text.gsub(/,|-/, ':') #=> "123:456:789"
+```
+
+# クラス
+```
+- クラス
+  一種のデータ型。オブジェクトの設計図、雛形。
+  クラスが同じであれば保持している属性（データ項目）や使えるメソッドは（原則として）同じになる
+
+
+- オブジェクト・インスタンス・レシーバ
+  クラスをもとにして作られたデータのかたまりをオブジェクトという。
+  設計図から作られる、赤い車や青い車などのオブジェクト。同じクラスから作られたオブジェクトは同じ属性やメソッドを持つが、属性の中に保持されるデータはオブジェクトによって異なる。
+  
+  alice = User.new('Alice', 'Ruby', 20)
+  
+  ・Alice Rubyさん20歳というユーザのオブジェクトを作成する
+  
+  ★オブジェクトとインスタンスは同義。オブジェクトをレシーバといったりもする
+
+  user = User.new('Alice', 'Ruby', 20)
+  user.first_name
+
+  ・2行目でUserオブジェクトのfirst_nameメソッドを呼び出している
+  ・first_nameメソッドのレシーバはuserです
+
+
+- メソッド・メッセージ
+  オブジェクトが持つ動作や振る舞い。メッセージとも呼ばれる。
+  2行目ではuserというレシーバに対して、first_nameというメッセージを送っている
+  ※レシーバとメッセージと言う呼び方はSmalltalkというオブジェクト指向言語でよく使われる
+
+
+- 状態（ステート）
+  Userの状態。名前、年齢、赤とか
+
+- 属性（アトリビュート、プロパティ）
+  オブジェクトから取得（or設定）できる値のことを属性。属性=名詞のことがおおい。
+```
+
+```rb
+# クラスの定義
+class User
+end
+
+class OrderItem
+end
+
+# クラスからオブジェクトを作成する場合はnewメソッドを使う
+User.new
+
+# このとき呼ばれるのがinitializeメソッド
+class User
+  def initialize
+    puts 'Initialized'
+  end
+end
+User.new #=> Initialized
+
+# インスタンスメソッドの定義
+# クラス内で定義したメソッド = インスタンスメソッドとなる
+# そのクラスのインスタンスに対して呼び出すことができるメソッド
+class User
+  # インスタンスメソッドの定義
+  def hello
+    puts "Hello!"
+  end
+end
+
+user = User.new
+# インスタンスメソッドの呼び出し
+user.hello #=> Hello
+
+# インスタンス変数とアクセサメソッド
+class User 
+  def initialize(name)
+    @name = name
+  end
+
+  def hello
+    # インスタンス変数に保存されている名前を表示
+    puts "Hello, I am #{@name}."
+  end
+
+  # クラス外からインスタンス変数を参照するためのメソッド
+  def name
+    puts @name
+  end
+
+  # クラス外からインスタンス変数の内容を変更したいとき
+  def name=(value) #=> スペースあけるとエラー
+    puts @name = value
+  end
+end
+
+user = User.new('Alice')
+user.hello #=> Hello, I am Alice.
+user.name #=> Alice
+user.name = 'Bob'
+
+# インスタンス変数を読み書きするメソッドのことをアクセサメソッドという
+# attr_accessor メソッドを使うと、外部から読み書きするメソッドを自動で定義できる
+class Member
+  attr_accessor :name
+  # attr_reader :name
+  # attr_writer :name
+  # 読み取り専用のときはattr_reader、書き込み専用のときはattr_writer
+
+  def initialize(name)
+    puts @name = name
+  end
+
+end
+
+member = Member.new('Mike')
+# @nameを参照する
+member.name
+# @nameを変更する
+member.name = 'Tom'
+
+# 複数の引数をカンマで渡せる！
+class User
+  attr_accessor :name, :age
+
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
+
+user = User.new('Alice', 20)
+user.name #=> "Alice"
+user.age #=> 20
+
+# クラスメソッドの定義
+# そのクラスに関連は深いものの、一つ一つのインスタンスに含まれるデータは使わないメソッド
+class User
+  def initialize(name)
+    @name = name
+  end
+
+  # self.を付けるとクラスメソッドになる
+  def self.create_users(names)
+    names.map do |name|
+      User.new(name)
+    end
+  end
+
+  def hello
+    "Hello I am #{@name}."
+  end
+end
+
+names = ['Alice', 'Bob', 'Carol']
+# クラスメソッドの呼び出し
+users = User.create_users(names)
+users.each do |user|
+  # インスタンスメソッドの呼び出し
+  puts user.hello
+end
+
+# 定数
+# デフォルトの価格を定数として定義できる
+class Product
+  # デフォルトの価格を定数として定義する
+  DEFAULT_PRICE = 0
+
+  attr_reader :name, :price
+
+  def initialize(name, price = DEFAULT_PRICE)
+    @name = name
+    @price = price
+  end
+end
+
+product = Product.new('A free movie')
+p product.price #=> 0
+
+# 定数は大文字、数字、アンスコで構成されることが多い
+DEFAULT_PRICE = 0
+UNITS = { m: 1.0, ft: 3.28, in: 39.37 }
+
+# インスタンスメソッド内でもクラスメソッド内でも同じ方法で参照することができる
+class Product
+  DEFAULT_PRICE = 0
+
+  def self.default_price
+    #クラスメソッドから定数を参照する
+    DEFAULT_PRICE
+  end
+
+  def default_price
+    #インスタンスメソッドから定数を参照する
+    DEFAULT_PRICE
+  end
+end
+
+Product.default_price #=> 0
+product = Product.new
+p product.default_price #=> 0
+```
