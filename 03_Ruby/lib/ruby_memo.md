@@ -1477,6 +1477,8 @@ end
 User.new
 
 # このとき呼ばれるのがinitializeメソッド
+# 必ず実行すべき初期化処理などを行わせる事ができる
+# 引数も持てる。その場合はinitializeメソッドに渡す値は、newメソッドの引数に指定する
 class User
   def initialize
     puts 'Initialized'
@@ -1625,4 +1627,599 @@ end
 Product.default_price #=> 0
 product = Product.new
 p product.default_price #=> 0
+```
+
+## クラスメソッド・インスタンスメソッド/呼び出し
+```rb
+class User
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def hello
+    # selfなしでnameメソッドを呼ぶ
+    "Hello, I am #{name}."
+  end
+
+  def hi
+    # self付きでnameメソッドを呼ぶ
+    "Hi, I am #{self.name}."
+  end
+
+  def my_name
+    # 直接インスタンス変数の@nameにアクセスする
+    "My name is #{@name}."
+  end
+end
+
+user = User.new('Alice')
+p user.hello #=>"Hello, I am Alice."
+p user.hi #=> "Hi, I am Alice."
+p user.my_name #=> "My name is Alice."
+
+class Foo
+  # このputsはクラス定義の読み込み時に呼び出される
+  puts "クラス構文の直下のself: #{self}"
+
+  def self.bar
+    puts "クラスメソッド内のself: #{self}"
+  end
+
+  def baz
+    puts "インスタンスメソッド内のself: #{self}"
+  end
+end
+#=> クラス構文の直下のself: Foo　
+
+Foo.bar #=> クラスメソッド内のself: Foo  Foo = .selfてことか
+
+foo = Foo.new
+foo.baz #=> インスタンスメソッド内のself: #<Foo:0x00007f8c490c7178> Fooクラスのインスタンスを表す
+
+# なので、下記はエラー
+class Foo
+  def self.bar
+    # クラスメソッドからインスタンスメソッドを呼び出す
+    self.baz
+  end
+
+  def baz
+    # インスタンスメソッドからクラスメソッドを呼び出す
+    self.bar
+  end
+end
+
+p Foo.bar
+#=> `bar': undefined method `baz' for Foo:Class (NoMethodError)
+
+foo = Foo.new
+p foo.baz
+#=> `baz': undefined method `bar' for #<Foo:0x00007fbf578ca320> (NoMethodError)
+
+# クラス構文直下でのメソッドの呼び出し
+class Foo
+  def self.bar
+    puts 'Hello!'
+  end
+
+  # クラス構文直下でクラスメソッドを呼び出せる！不思議か！
+  self.bar
+
+  3.times do
+    puts 'hello...'
+  end
+end
+
+# インスタンスメソッドからクラスメソッドを呼び出す場合
+# クラス名.メソッド
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+
+  # 金額を整形するクラスメソッド
+  def self.format_price(price)
+    p "#{price}円"
+  end
+
+  def to_s
+    # インスタンスメソッドからクラスメソッドを呼び出す
+    formatted_price = Product.format_price(price)
+    # self.class.format_price(price)ともかける！
+    "name: #{name}, price: #{formatted_price}"
+  end
+end
+
+product = Product.new('A great movie', 1000)
+p product.to_s #=> "name: A great movie, price: 1000円"
+```
+
+## クラスの継承
+```
+親クラス = スーパークラス
+子クラス = サブクラス
+サブクラス is a スーパークラス　で違和感なければOKの可能性が高い
+
+・rubyの継承は単一継承。継承できるスーパークラスは1つのみ
+・頂点はobjectクラス（Basic objectクラスがruby1.9から頂点にいる）でOK
+```
+
+```rb
+# Objectクラスはデフォルトで継承される
+class User
+end
+
+# メソッドの呼び出しができる
+# Objectクラスを継承してるから
+user = User.new
+user.to_s #=> #<User:0x00007fbc8589e128>
+user.nil? #=> false
+
+# 継承チェック
+User.superclass #=> Object
+
+# Objectクラスから継承したメソッドの一覧が取得できる
+user = User.new
+user.methods.sort #=>[:!, :!=, :!~, :<=>, :==, :===, :=~, :__id__, :__send__, :class, :clone, :define_singleton_method, :display, :dup, :enum_for, :eql?, :equal?, :extend, :freeze, :frozen?, :hash, :inspect, :instance_eval, :instance_exec, :instance_of?, :instance_variable_defined?, :instance_variable_get, :instance_variable_set, :instance_variables, :is_a?, :itself, :kind_of?, :method, :methods, :nil?, :object_id, :private_methods, :protected_methods, :public_method, :public_methods, :public_send, :remove_instance_variable, :respond_to?, :send, :singleton_class, :singleton_method, :singleton_methods, :taint, :tainted?, :tap, :to_enum, :to_s, :trust, :untaint, :untrust, :untrusted?]
+
+# オブジェクトのクラスを確認する
+class User 
+end
+
+user = User.new
+user.class #=> User
+user.instance_of?(User) #=> true
+user.instance_of?(String) #=> false
+
+# instance_of?はクラスが全く同じではないとエラー
+user.instance_of?(Object) #=> false
+
+# is_a?（kind_of?）は継承関係を含めて確認
+user.is_a?(User) #=> true
+user.is_a?(Object) #=> true
+user.is_a?(BasicObject) #=> true
+user.is_a?(String) #=> false 関係ないのはエラー
+
+# class サブクラス < スーパークラス
+# end
+# まずはProductクラスを作成、Objectクラスを勝手に継承する
+class Product
+  # スーパークラスで定義したものはサブクラスでは定義不要
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+
+  def to_s
+    "name: #{name}, price: #{price}"
+  end
+end
+product = Product.new('movie', 1000)
+product.name #=> "movie"
+product.price #=> 1000
+
+# DVDクラスはProductクラスを継承する
+class DVD < Product
+  # 再生時間を定義
+  attr_reader :running_time
+
+  def initialize(name, price, running_time)
+    # スーパークラスにも存在している属性 >>> スーパークラスのメソッドを呼べる！
+    # @name = name
+    # @price = price
+    super(name, price)
+    # super # >>> 引数をすべてスーパークラスのメソッドに渡す
+    @running_time = running_time
+  end
+
+  def to_s
+    "#{super}, running_time: #{running_time}"
+  end
+end
+dvd = DVD.new('movie', 1000, 120)
+dvd.name #=> "movie"
+dvd.price #=> 1000
+dvd.running_time #=> 120
+dvd.to_s #=> "name: movie, price: 1000, running_time: 120"
+
+
+# クラスメソッドの継承
+class Foo
+  def self.hello
+    'hello'
+  end
+end
+
+class Bar < Foo
+end
+
+p Foo.hello #=> "hello"
+p Bar.hello #=> "hello"
+
+# メソッドの公開レベル
+# public
+# protected
+# private
+
+# publicメソッド
+# initialize以外のメソッドはデフォルトでこっち
+
+# privateメソッド
+# クラスの内部のみで使えるメソッド
+# クラス内でprivateキーワードを書く
+class User
+  def greeting
+    # hello、nameはprivateメソッドなのでselfを付けるとエラーに
+    "#{hello}, I am #{self.name}"
+  end
+
+  # ここから下で定義されたメソッドはprivate
+  private
+
+  def hello
+    'Hello!'
+  end
+
+  def name
+    'Alice'
+  end
+end
+user = User.new
+
+# privateメソッドは呼び出せない
+user.hello #=> private method `hello' called for #<User:0x00007fec9f09c7f0> (NoMethodError)
+
+# self.privateメソッドは呼び出せない ※selfトルと呼び出せる
+user.greeting #=> private method `name' called for #<User:0x00007fc6301390e0> (NoMethodError)
+
+# サブクラスからスーパークラスのprivateメソッドを呼び出せる！
+
+# private下に書いてprivateメソッドになるのはインスタンスメソッドのみ！クラスメソッドはprivateにならない
+class User
+  private
+
+  # クラスメソッド
+  def self.hello
+    'hello!'
+  end
+end
+
+# 呼べる！
+User.hello #=> 'hello!'
+
+# クラスメソッドをprivateにしたい場合
+class User
+  class << self
+    private
+
+    def hello
+      'hello!'
+    end
+  end
+end
+
+# 呼べない！
+User.hello #=> private method `hello' called for User:Class (NoMethodError)
+
+
+# private,publicの順序
+# privateを下の方にまとめて書く
+class User
+  public #=> 書かなくていい
+
+  def foo
+  end
+
+  private
+
+  def hoo
+  end
+end
+
+# 公開レベル変更できる
+class User 
+  def foo
+  end
+
+  def hoo
+  end
+
+  private :foo, :hoo #=> privateメソッドに変更
+
+  # ※これはpublicメソッド
+  def baz
+    'baz!'
+  end
+end
+user = User.new
+user.foo #=> private method `hello' called for User:Class (NoMethodError)
+user.hoo #=> private method `hello' called for User:Class (NoMethodError)
+user.baz #=> "baz!"
+
+
+# protectedメソッド
+# 外部には公開したくないが、同じクラス・サブクラスの中であればレシーバ付きで呼び出せる
+class User
+  attr_reader :name
+
+  def initialize(name, weight)
+    @name = name
+    @weight = weight
+  end
+
+  def heavier_than?(other_user)
+    other_user.weight < @weight
+  end
+
+  protected
+
+  # レシーバ付きで呼び出せる
+  def weight
+    @weight
+  end
+end
+
+alice = User.new('Alice', 50)
+bob = User.new('Bob', 60)
+
+p alice.heavier_than?(bob) #=> false
+p bob.heavier_than?(alice) #=> true
+p alice.weight #=> 呼び出せない！ protected method `weight' called for #<User:0x00007f834d0c8a28 @name="Alice", @weight=50> (NoMethodError)
+```
+
+```rb
+# 定数をもっと詳しく
+class Product
+  DEFAULT_PRICE = 0
+end
+# 定数を参照
+Product::DEFAULT_PRICE #=> 0
+
+# 外部から参照させたくないとき
+class Product
+  DEFAULT_PRICE = 0
+  private_constant :DEFAULT_PRICE
+end
+
+Product::DEFAULT_PRICE #=> private constant Product::DEFAULT_PRICE referenced (NameError)
+
+# メソッドの内部で定数を作成することはできない！
+
+# でも…
+
+# 再代入して値を書き換えることが可能！外部からも。それを防ぐ
+class Product
+end
+# 定数を変更できない。凍結！あまり使わない
+Product.freeze
+
+# 定数の値をフリーズする。破壊的な変更を防ぐ
+SOME_NAMES = ['Foo', 'Bar', 'Baz'].freeze
+# でも、各要素はfreezeされない
+Product::SOME_NAMES[0].upcase! #=> FOOになっちゃう
+# 中身全部freezeする... 
+SOME_NAMES = ['Foo'.freeze, 'Bar'.freeze, 'Baz'.freeze].freeze
+# ひどい！mapメソッド使うと良い
+SOME_NAMES = ['Foo', 'Bar', 'Baz'].map(&:freeze).freeze
+```
+
+```rb
+# いろいろな変数
+class Product
+  # クラスインスタンス変数
+  @name = name
+
+  # クラスインスタンス変数
+  def self.name
+    @name
+  end
+
+  # インスタンス変数
+  def initialize(name)
+    @name = name
+  end
+
+  # インスタンス変数
+  def name
+    @name
+  end
+end 
+
+class DVD < Product
+  @name = 'DVD'
+
+  # クラスインスタンス変数を参照
+  def self.name
+    @name
+  end
+
+  # インスタンス変数を参照
+  def upcase_name
+    @name.upcase
+  end
+end
+
+p Product.name #=> "Product"
+p DVD.name #=> "DVD"
+
+product = Product.new('movie')
+p product.name #=> "movie"
+
+dvd = DVD.new('film')
+p dvd.name #=> "film"
+p dvd.upcase_name #=> "FILM" ※@nameにはfilmが入ってる
+
+# ※クラスインスタンス変数は別に管理されてる
+p Product.name #=> "Product" 
+p DVD.name #=> "DVD"
+```
+
+# クラス変数
+```rb
+# クラスメソッド内でもインスタンスメソッド内でも共有かつスーパークラスとサブクラスでも共有される変数
+class Product
+  @@name = 'Product'
+
+  def self.name
+    @@name
+  end
+
+  def initialize(name)
+    @@name = name
+  end
+
+  def name
+    @@name
+  end
+end
+
+class DVD
+  @@name = 'DVD'
+
+  def self.name
+    @@name
+  end
+
+  def upcase_name
+    @@name.upcase
+  end
+end
+
+# DVDクラス定義したタイミングで@@nameがDVDに
+p Product.name #=> "DVD"
+p DVD.name #=> "DVD"
+
+product = Product.new('movie')
+p product.name #=> "movie"
+
+# Product.newのタイミングで@@nameがmovieに
+p Product.name #=> "movie"
+p DVD.name #=> "movie"
+
+
+dvd = DVD.new('film')
+p dvd.name #=> "film"
+p dvd.upcase_name #=> "FILM"
+
+# DVD.newのタイミングで@@nameがfilmに
+p product.name #=> "film"
+p Product.name #=> "film"
+p DVD.name #=> "film"
+
+
+# グローバル変数、組み込み変数
+# $ではじまる
+$program_name = 'program'
+
+# グローバル変数に依存するクラス
+class Program
+  def initialize(name)
+    $program_name = name
+  end
+
+  def self.name
+    $program_name
+  end
+
+  def name
+    $program_name
+  end
+end
+
+# Program.newにprogramがすでに名前が代入されている
+p Program.name #=> "program"
+
+program = Program.new('Super')
+p program.name #=> "Super"
+
+# Program.newのタイミングでSuperに変更
+p Program.name #=> "Super"
+p $program_name #=> "Super"
+```
+
+# クラス定義・Ruby言語仕様
+```rb
+# エイリアスメソッド定義
+class User
+  def hello
+    'Hello'
+  end
+
+  # helloメソッドのエイリアスメソッドとしてgreetingを定義する
+  alias greeting hello
+end
+
+user = User.new
+p user.hello #=> "Hello"
+p user.greeting #=> "Hello"
+
+# メソッドの削除
+class User
+  # freezeメソッドの定義を削除
+  undef freeze
+end
+
+user = User.new
+# p user.freeze #=> undefined method `freeze'
+
+# ネストしたクラスの定義
+class User
+  # privateなどはつけられない
+  class BloodType
+    attr_reader :type
+
+    def initialize(type)
+      @type = type
+    end
+  end
+end
+
+blood_type = User::BloodType.new('B')
+p blood_type.type #=> "B"
+```
+
+## 再定義
+```rb
+class User
+  def name=(value)
+    @name = value
+  end
+end
+
+user = User.new
+# 変数に代入するかたちでname=メソッドを呼び出せる
+user.name = 'Alice'
+
+# オープンクラスとモンキーパッチ
+# Stringクラスを継承した独自クラスを定義
+class MyString < String
+end
+s = MyString.new('Hello')
+p s #=> "Hello"
+p s.class #=> MyString
+
+class MyArray < Array
+end
+a = MyArray.new()
+a << 1
+a << 2
+p a #=> [1, 2]
+p a.class #=> MyArray
+
+class String
+  def shuffle
+    chars.shuffle.join
+  end
+end
+
+s = 'Hello, I am Alice.'
+p s.shuffle #=> "H le. Aeiocl,a lIm"
+p s.shuffle #=> "iHel cel l moa,A.I"
 ```
