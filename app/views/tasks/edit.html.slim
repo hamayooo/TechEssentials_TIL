@@ -1,0 +1,6 @@
+h1 class="uk-heading-small" タスク編集
+nav class="uk-margin"
+  div class="uk-navbar-container uk-navbar-left uk-padding-small"
+    = link_to '一覧', tasks_path, class: 'nav-link'
+
+= render partial: 'form', locals: {task: @task}

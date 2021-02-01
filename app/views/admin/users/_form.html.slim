@@ -1,0 +1,25 @@
+- if user.errors.present?
+  ul#error_explanation
+    - user.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: [:admin, user], local: true do |f|
+  .uk-margin
+    = f.label :name, '名前'
+    div class="uk-form-controls"
+      = f.text_field :name, class: 'uk-input'
+  .uk-margin
+    = f.label :email, 'メールアドレス'
+    div class="uk-form-controls"
+      = f.text_field :email, class: 'uk-input'
+  .uk-margin
+    = f.label :admin do
+      = f.check_box :admin, class: 'uk-checkbox'
+      | 管理者権限
+  .uk-margin
+    = f.label :password, 'パスワード'
+    = f.password_field :password, class: 'uk-input'
+  .uk-margin
+    = f.label :password_confirmation, 'パスワード（確認）'
+    = f.password_field :password_confirmation, class: 'uk-input'
+  = f.submit '登録する', class: 'uk-padding-small uk-margin'

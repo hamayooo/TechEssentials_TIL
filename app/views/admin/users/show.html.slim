@@ -1,0 +1,29 @@
+h1 class="uk-heading-small" ユーザーの詳細
+
+nav class="uk-margin"
+  div class="uk-navbar-container uk-navbar-left uk-padding-small"
+    = link_to '一覧', admin_users_path, class: 'nav-link'
+
+table.uk-table.uk-table-divider.uk-table-hover.uk-table-middle
+  tbody
+    tr
+      th.uk-width-1-4 = User.human_attribute_name(:id)
+      td.uk-width-3-4 = @user.id
+    tr
+      th.uk-width-1-4 = User.human_attribute_name(:name)
+      td.uk-width-3-4 = @user.name
+    tr
+      th.uk-width-1-4 = User.human_attribute_name(:email)
+      td.uk-width-3-4 = @user.email
+    tr
+      th.uk-width-1-4 = User.human_attribute_name(:admin)
+      td.uk-width-3-4 = @user.admin? ? 'あり' : 'なし'
+    tr
+      th.uk-width-1-4 = User.human_attribute_name(:created_at)
+      td.uk-width-3-4 = @user.created_at
+    tr
+      th.uk-width-1-4 = User.human_attribute_name(:updated_at)
+      td.uk-width-3-4 = @user.updated_at
+
+= link_to '編集', edit_admin_user_path, class: 'uk-button uk-button-secondary uk-margin-right'
+= link_to '削除', [:admin, @user], method: :delete, data: { confirm: "タスク「#{@task.name}」を削除します。よろしいですか？" }, class: 'uk-button uk-button-default'

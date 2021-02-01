@@ -1,0 +1,7 @@
+h1 class="uk-heading-small" ユーザー登録
+
+nav class="uk-margin"
+  div class="uk-navbar-container uk-navbar-left uk-padding-small"
+    = link_to '一覧', admin_users_path, class: 'nav-link'
+
+= render partial: 'form', locals: { user: @user }
