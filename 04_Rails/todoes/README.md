@@ -6,12 +6,13 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+2.5.1
 * System dependencies
 
 * Configuration
 
 * Database creation
+SQLite3 1.3.13
 
 * Database initialization
 
