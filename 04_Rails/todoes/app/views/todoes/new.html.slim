@@ -1,2 +1,8 @@
-h1 Todoes#new
-p Find me in app/views/todoes/new.html.slim
+h1 class='uk-text-bold' タスクの新規登録
+
+= link_to '一覧', todoes_path, class: 'uk-button uk-button-primary'
+
+= form_with model: @task, local: true do |f|
+  .uk-margin.uk-flex.uk-padding-small
+    = f.label :name
+    = f.text_field :name, class: 'uk-input', id: 'todo_name', placeholder: "タスク名"

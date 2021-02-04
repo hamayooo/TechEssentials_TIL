@@ -8,4 +8,7 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    nav class='uk-nav uk-nav-default uk-padding-small uk-background-primary uk-light'
+      .uk-text-lead.uk-text-bold TODOES
+    section class='uk-container uk-container-expand uk-section'
+      = yield
