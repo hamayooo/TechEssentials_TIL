@@ -3,6 +3,10 @@ h1 class='uk-text-bold' タスクの新規登録
 = link_to '一覧', todoes_path, class: 'uk-button uk-button-primary'
 
 = form_with model: @task, local: true do |f|
-  .uk-margin.uk-flex.uk-padding-small
-    = f.label :name
+  .uk-margin.uk-padding-small
+    = f.label :name, class: 'uk-margin-small'
     = f.text_field :name, class: 'uk-input', id: 'todo_name', placeholder: "タスク名"
+  .uk-margin.uk-padding-small
+    = f.label :description, class: 'uk-margin-small'
+    = f.text_area :description, rows: 5, class: 'uk-textarea', id: 'todo_description', placeholder: "タスクの内容を記載してください"
+  = f.submit nil, class: 'uk-button uk-button-primary uk-button-large'

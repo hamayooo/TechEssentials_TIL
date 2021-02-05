@@ -444,3 +444,184 @@ Processing by TodoesController#new as HTML
 Completed 200 OK in 67ms (Views: 63.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2021-02-05 07:22:37 +0900
+Processing by TodoesController#index as HTML
+  Rendering todoes/index.html.slim within layouts/application
+  Rendered todoes/index.html.slim within layouts/application (280.9ms)
+Completed 200 OK in 1157ms (Views: 1009.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 07:22:41 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (118.8ms)
+Completed 200 OK in 327ms (Views: 283.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 07:23:00 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (58.6ms)
+Completed 200 OK in 285ms (Views: 263.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 07:23:23 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (33.2ms)
+Completed 200 OK in 212ms (Views: 197.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 07:23:33 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (27.5ms)
+Completed 200 OK in 186ms (Views: 171.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes" for ::1 at 2021-02-05 11:40:48 +0900
+Processing by TodoesController#index as HTML
+  Rendering todoes/index.html.slim within layouts/application
+  Rendered todoes/index.html.slim within layouts/application (69.3ms)
+Completed 200 OK in 538ms (Views: 501.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 11:40:50 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (93.3ms)
+Completed 200 OK in 579ms (Views: 557.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-05 21:24:49 +0900
+Processing by TodoesController#index as HTML
+  Rendering todoes/index.html.slim within layouts/application
+  Rendered todoes/index.html.slim within layouts/application (176.1ms)
+Completed 200 OK in 1373ms (Views: 1236.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 21:24:54 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (668.3ms)
+Completed 200 OK in 1122ms (Views: 1081.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-05 21:25:27 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (155.4ms)
+Completed 200 OK in 757ms (Views: 717.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-05 21:56:57 +0900
+Processing by TodoesController#index as HTML
+  Rendering todoes/index.html.slim within layouts/application
+  Rendered todoes/index.html.slim within layouts/application (88.9ms)
+Completed 200 OK in 853ms (Views: 737.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-06 01:07:50 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (363.7ms)
+Completed 200 OK in 1005ms (Views: 862.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-06 01:08:18 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (112.1ms)
+Completed 200 OK in 438ms (Views: 424.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todoes/new" for ::1 at 2021-02-06 01:08:21 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/todoes/new"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/todoes/new" for ::1 at 2021-02-06 01:08:32 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/todoes/new"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/todoes/new" for ::1 at 2021-02-06 01:09:46 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (50.8ms)
+Completed 200 OK in 225ms (Views: 215.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-06 01:12:31 +0900
+Processing by TodoesController#index as HTML
+  Rendering todoes/index.html.slim within layouts/application
+  Rendered todoes/index.html.slim within layouts/application (24.2ms)
+Completed 200 OK in 252ms (Views: 245.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-06 01:12:34 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (40.1ms)
+Completed 200 OK in 209ms (Views: 202.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todoes/new" for ::1 at 2021-02-06 01:13:18 +0900
+Processing by TodoesController#new as HTML
+  Rendering todoes/new.html.slim within layouts/application
+  Rendered todoes/new.html.slim within layouts/application (60.0ms)
+Completed 200 OK in 294ms (Views: 273.7ms | ActiveRecord: 0.0ms)
+
+
