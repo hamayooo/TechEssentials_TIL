@@ -10,5 +10,9 @@ html
   body
     nav class='uk-nav uk-nav-default uk-padding-small uk-background-primary uk-light'
       .uk-text-lead.uk-text-bold TODOES
+    - if flash.notice.present?
+      .uk-alert-primary
+        = flash.notice
     section class='uk-container uk-container-expand uk-section'
+    
       = yield

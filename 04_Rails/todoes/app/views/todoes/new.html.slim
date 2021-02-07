@@ -1,8 +1,8 @@
 h1 class='uk-text-bold' タスクの新規登録
 
-= link_to '一覧', todoes_path, class: 'uk-button uk-button-primary'
+/ = link_to '一覧', todoes_path, class: 'uk-button uk-button-primary'
 
-= form_with model: @task, local: true do |f|
+= form_with model: @todo, local: true do |f|
   .uk-margin.uk-padding-small
     = f.label :name, class: 'uk-margin-small'
     = f.text_field :name, class: 'uk-input', id: 'todo_name', placeholder: "タスク名"
