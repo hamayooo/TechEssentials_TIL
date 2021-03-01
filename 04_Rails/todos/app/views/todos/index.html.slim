@@ -1,0 +1,16 @@
+h1 class="uk-heading-small uk-bold uk-heading-line" TODOS
+
+= link_to '新規登録', new_todo_path, class: 'uk-button uk-button-primary'
+
+table.uk-table.uk-table-divider.uk-table-hover.uk-table-justify.uk-table-responsive
+  thead
+    tr 
+      th= Todo.human_attribute_name(:name)
+      th= Todo.human_attribute_name(:created_at)
+      th
+  tbody 
+    - @todos.each do |todo|
+      tr 
+        td= link_to todo.name, todo_path(todo)
+        td= todo.created_at
+        td= link_to '編集', edit_todo_path(todo), class: 'uk-button uk-button-secondary'

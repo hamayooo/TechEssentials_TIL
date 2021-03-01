@@ -1,0 +1,8 @@
+= form_with model: todo, class: '', local: true do |f|
+  .uk-margin-large
+    = f.label :name
+    = f.text_field :name, class: 'uk-input', id: 'todo_name'
+  .uk-margin-large
+    = f.label :description
+    = f.text_area :description, rows: 5, class: 'uk-textarea', id: 'todo_description'
+  = f.submit nil, class: 'uk-button uk-button-primary'

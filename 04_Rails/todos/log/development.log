@@ -5,3 +5,1219 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 25ms (Views: 9.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2021-02-08 13:48:10 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (194.1ms)
+Completed 200 OK in 537ms (Views: 281.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-09 22:39:27 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (289.5ms)
+Completed 200 OK in 639ms (Views: 388.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 15:47:56 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (4.3ms)
+Completed 200 OK in 25ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-11 16:25:02 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (29.5ms)
+Completed 200 OK in 113ms (Views: 48.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTodos (20210213215413)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210213215413_create_todos.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210213215413"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-02-13 21:56:27.707162"], ["updated_at", "2021-02-13 21:56:27.707162"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-02-14 07:10:44 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 3160ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'uikit-icons.min' with type 'application/javascript'
+Checked in these paths: 
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/assets/config
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/assets/images
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/assets/javascripts
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/assets/stylesheets
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/vendor/assets/javascript
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/vendor/assets/stylesheet
+  /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.4/lib/assets/compiled
+  /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.4/app/assets/javascripts
+  /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.4/lib/assets/compiled
+  /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/node_modules):
+     5:       | Todos
+     6:     = csrf_meta_tags
+     7:     = csp_meta_tag
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    10:   body
+    11:     header class="uk-padding-small uk-background-primary uk-light" TODOS
+  
+app/assets/javascripts/application.js:17
+app/views/layouts/application.html.slim:8:in `_app_views_layouts_application_html_slim__2232714987675821675_70249734083160'
+Started GET "/" for ::1 at 2021-02-14 07:14:25 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (3.4ms)
+Completed 200 OK in 658ms (Views: 652.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 07:14:56 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (3.0ms)
+Completed 200 OK in 62ms (Views: 58.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 07:15:05 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (2.8ms)
+Completed 200 OK in 70ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 07:15:11 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (2.2ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 10:45:24 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (50.4ms)
+Completed 200 OK in 399ms (Views: 349.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 07:02:01 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (136.7ms)
+Completed 200 OK in 724ms (Views: 636.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 07:21:12 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (60.9ms)
+Completed 200 OK in 486ms (Views: 470.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 07:21:20 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (38.7ms)
+Completed 200 OK in 297ms (Views: 285.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 07:21:27 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (20.9ms)
+Completed 200 OK in 355ms (Views: 345.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-15 07:21:33 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (13.1ms)
+Completed 200 OK in 201ms (Views: 190.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-15 07:22:14 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (21.3ms)
+Completed 200 OK in 319ms (Views: 312.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 07:22:15 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (19.4ms)
+Completed 200 OK in 194ms (Views: 183.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-15 07:22:25 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (16.0ms)
+Completed 200 OK in 172ms (Views: 163.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-15 07:22:30 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (10.8ms)
+Completed 200 OK in 155ms (Views: 146.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-20 06:16:38 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (303.0ms)
+Completed 200 OK in 2012ms (Views: 1815.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-20 06:51:07 +0900
+Started GET "/todos/new" for ::1 at 2021-02-20 06:51:09 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (49.3ms)
+Completed 200 OK in 521ms (Views: 496.4ms | ActiveRecord: 0.0ms)
+
+
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (36.3ms)
+Completed 200 OK in 809ms (Views: 550.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:51:17 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (26.6ms)
+Completed 200 OK in 234ms (Views: 223.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:51:43 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (31.5ms)
+Completed 200 OK in 302ms (Views: 287.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:52:37 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (22.0ms)
+Completed 200 OK in 447ms (Views: 403.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 06:52:39 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (47.0ms)
+Completed 200 OK in 282ms (Views: 270.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:52:45 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (44.1ms)
+Completed 200 OK in 412ms (Views: 401.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 06:52:45 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (28.4ms)
+Completed 200 OK in 194ms (Views: 186.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:52:46 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (18.9ms)
+Completed 200 OK in 264ms (Views: 258.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 06:52:48 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (18.5ms)
+Completed 200 OK in 192ms (Views: 184.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:55:38 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (82.2ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/views/todos/new.html.slim:11: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...escape_html_safe((f.text-area :description, rows: 5, class: ...
+...                              ^
+/Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/views/todos/new.html.slim:11: syntax error, unexpected ',', expecting ')'
+..., rows: 5, class: 'uk-padding', id: 'todo_description'))).to...
+...                              ^):
+  
+app/views/todos/new.html.slim:11: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/views/todos/new.html.slim:11: syntax error, unexpected ',', expecting ')'
+Started GET "/todos/new" for ::1 at 2021-02-20 06:55:40 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (28.5ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/views/todos/new.html.slim:11: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+...escape_html_safe((f.text-area :description, rows: 5, class: ...
+...                              ^
+/Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/views/todos/new.html.slim:11: syntax error, unexpected ',', expecting ')'
+..., rows: 5, class: 'uk-padding', id: 'todo_description'))).to...
+...                              ^):
+  
+app/views/todos/new.html.slim:11: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+app/views/todos/new.html.slim:11: syntax error, unexpected ',', expecting ')'
+Started GET "/todos/new" for ::1 at 2021-02-20 06:55:59 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (507.5ms)
+Completed 200 OK in 679ms (Views: 672.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:56:13 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (27.2ms)
+Completed 200 OK in 143ms (Views: 132.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:57:12 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (33.4ms)
+Completed 200 OK in 345ms (Views: 335.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:57:32 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (6.5ms)
+Completed 200 OK in 73ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:57:42 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (15.4ms)
+Completed 200 OK in 99ms (Views: 82.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 06:59:33 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (11.5ms)
+Completed 200 OK in 115ms (Views: 101.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:59:34 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (15.4ms)
+Completed 200 OK in 95ms (Views: 90.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 06:59:43 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (3.5ms)
+Completed 200 OK in 91ms (Views: 85.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 06:59:44 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (7.1ms)
+Completed 200 OK in 77ms (Views: 72.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:00:24 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (8.4ms)
+Completed 200 OK in 67ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:00:28 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (8.1ms)
+Completed 200 OK in 77ms (Views: 74.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:00:43 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (11.8ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Malformed indentation
+  /Users/yosukehamaguchi/Desktop/_PJ--data/TechEssentials_TIL/04_Rails/todos/app/views/todos/new.html.slim, Line 10, Column 2
+    = f.submit nil, class: 'uk-button uk-button-primary'
+    ^
+):
+     7:     = f.text_field :name, class: 'uk-input', id: 'todo_name'
+     8:     = f.label :description
+     9:     = f.text_area :description, rows: 5, class: 'uk-textarea', id: 'todo_description'
+    10:   = f.submit nil, class: 'uk-button uk-button-primary'
+  
+app/views/todos/new.html.slim:10
+Started GET "/todos/new" for ::1 at 2021-02-20 07:00:56 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (6.1ms)
+Completed 200 OK in 48ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:01:40 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (57.5ms)
+Completed 200 OK in 248ms (Views: 222.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:01:54 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (41.1ms)
+Completed 200 OK in 175ms (Views: 141.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:02:03 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (11.3ms)
+Completed 200 OK in 101ms (Views: 93.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-20 07:11:47 +0900
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for TodosController):
+  
+actionpack (5.2.4.4) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.4.4) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.4.4) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/todos" for ::1 at 2021-02-20 07:29:22 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jesHM/VAWQkjE6Qq1MPLZpVATF+Og5jPJY+fNzDHjla5K14iXFunI6Dg0dU6nnSV/kglO1iqsF5Qa1sL5fq5kg==", "todo"=>{"name"=>"asdf", "description"=>"asdf"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[36mTodo Create (8.5ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "asdf"], ["description", "asdf"], ["created_at", "2021-02-19 22:29:23.182500"], ["updated_at", "2021-02-19 22:29:23.182500"]]
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 135ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:29:23 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (13.7ms)
+Completed 200 OK in 205ms (Views: 200.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:31:08 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (56.4ms)
+Completed 200 OK in 346ms (Views: 339.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-20 07:31:12 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UhUTX8PEEhMCFlc+ZN1hizrIvB7LbRCU8s6xfhOGOftwRLCWgi5pvRrCpsV2SANo3irS9eAeoAIQHsfICOr8Fw==", "todo"=>{"name"=>"asdf", "description"=>"adsf"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[36mTodo Create (1.1ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "asdf"], ["description", "adsf"], ["created_at", "2021-02-19 22:31:12.572061"], ["updated_at", "2021-02-19 22:31:12.572061"]]
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 12ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:31:12 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (19.1ms)
+Completed 200 OK in 367ms (Views: 357.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:31:14 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (19.6ms)
+Completed 200 OK in 91ms (Views: 83.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:31:17 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (4.7ms)
+Completed 200 OK in 92ms (Views: 87.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:31:54 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (22.3ms)
+Completed 200 OK in 188ms (Views: 183.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-20 07:32:01 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vcn3rx5wgix6SyK7nWtVEahr3myi9CwqOTRpAS7u+7+fmFRmX5r5gmKf00CP/jfyTImwh4mHnLzb5B+3NYI+Uw==", "todo"=>{"name"=>"adsf", "description"=>"asdf"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[36mTodo Create (0.6ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "adsf"], ["description", "asdf"], ["created_at", "2021-02-19 22:32:01.686422"], ["updated_at", "2021-02-19 22:32:01.686422"]]
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:32:01 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (15.4ms)
+Completed 200 OK in 104ms (Views: 98.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:32:59 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (410.5ms)
+Completed 200 OK in 2147ms (Views: 1756.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:33:13 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (1584.5ms)
+Completed 200 OK in 7187ms (Views: 6655.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:34:48 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (338.5ms)
+Completed 200 OK in 1548ms (Views: 1514.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:35:04 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (59.0ms)
+Completed 200 OK in 327ms (Views: 317.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-20 07:35:09 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nPJce+68qp7q8Jl5womBheNi6HrK8+iD13qNnSoWXuaoMgVqR6dUtGkD7IYs1D52iGqBHhzawBKinkmh/ytpIg==", "todo"=>{"name"=>"asdf", "description"=>"asdf"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[36mTodo Create (1.6ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "asdf"], ["description", "asdf"], ["created_at", "2021-02-19 22:35:09.291924"], ["updated_at", "2021-02-19 22:35:09.291924"]]
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 78ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:35:09 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (7.8ms)
+Completed 200 OK in 149ms (Views: 132.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-20 07:35:32 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (54.8ms)
+Completed 200 OK in 301ms (Views: 293.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-20 07:35:34 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r3nAhnalOdkow28wxI1wYFwjE7/HM2TgqxBWGUYi+gCNKGNPN09CdzAXnsvWGBKDuMF9VOxA1HZJwCCvXU4/7A==", "todo"=>{"name"=>"asf", "description"=>"asdf"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[36mTodo Create (0.5ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "asf"], ["description", "asdf"], ["created_at", "2021-02-19 22:35:34.817043"], ["updated_at", "2021-02-19 22:35:34.817043"]]
+  ↳ app/controllers/todos_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:14
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 13ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-20 07:35:34 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  Rendered todos/index.html.slim within layouts/application (15.5ms)
+Completed 200 OK in 218ms (Views: 212.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:52:02 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (2.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:11
+  Rendered todos/index.html.slim within layouts/application (374.1ms)
+Completed 200 OK in 1059ms (Views: 945.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:52:47 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:11
+  Rendered todos/index.html.slim within layouts/application (67.9ms)
+Completed 200 OK in 448ms (Views: 434.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:53:23 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (58.3ms)
+Completed 200 OK in 297ms (Views: 287.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:53:36 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (51.9ms)
+Completed 200 OK in 347ms (Views: 335.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:56:17 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (45.4ms)
+Completed 200 OK in 193ms (Views: 181.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/1" for ::1 at 2021-02-21 06:56:21 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (13.8ms)
+Completed 200 OK in 134ms (Views: 125.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/1" for ::1 at 2021-02-21 06:56:24 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (10.5ms)
+Completed 200 OK in 114ms (Views: 106.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:56:48 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (40.8ms)
+Completed 200 OK in 245ms (Views: 237.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todos/1" for ::1 at 2021-02-21 06:56:52 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (17.1ms)
+Completed 200 OK in 149ms (Views: 143.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/2" for ::1 at 2021-02-21 06:56:53 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (12.2ms)
+Completed 200 OK in 137ms (Views: 132.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 06:57:36 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (34.1ms)
+Completed 200 OK in 177ms (Views: 164.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 07:15:56 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (3.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (105.3ms)
+Completed 200 OK in 356ms (Views: 336.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/todos/1" for ::1 at 2021-02-21 07:15:59 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (48.3ms)
+Completed 200 OK in 246ms (Views: 172.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-21 07:21:04 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (130.0ms)
+Completed 200 OK in 465ms (Views: 437.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-21 07:21:52 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A9xayKR+obIUwDVJTCzVTMCrcuwWX1E4ZyWHDB0Xoe0hjfkB5ZTaHAwUxLJeubevJEkcBz0s4a6F9fG6BntkAQ==", "todo"=>{"name"=>"asdfs", "description"=>"kし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓ"}, "commit"=>"登録する"}
+  [1m[35m (3.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:16
+  [1m[36mTodo Create (1.2ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "asdfs"], ["description", "kし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓkし青い女kんt；、おばｊぽいｔ；あｋｍ；あｋｌｓｄｂｐさふぁｐしあんｍｌ；もｐｔあｓｐどいま；ｄｋｌｃｖんま；ｌｋｄｓ"], ["created_at", "2021-02-20 22:21:52.275755"], ["updated_at", "2021-02-20 22:21:52.275755"]]
+  ↳ app/controllers/todos_controller.rb:16
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:16
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 91ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 07:21:52 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (96.9ms)
+Completed 200 OK in 468ms (Views: 433.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-21 07:22:03 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:11
+  Rendered todos/index.html.slim within layouts/application (44.2ms)
+Completed 200 OK in 208ms (Views: 199.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:22:06 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (15.4ms)
+Completed 200 OK in 83ms (Views: 72.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:22:45 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (56.9ms)
+Completed 200 OK in 184ms (Views: 173.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:22:56 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (2.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (27.0ms)
+Completed 200 OK in 114ms (Views: 107.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:23:34 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (54.2ms)
+Completed 200 OK in 221ms (Views: 214.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:24:17 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (45.9ms)
+Completed 200 OK in 166ms (Views: 158.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:25:09 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (48.5ms)
+Completed 200 OK in 359ms (Views: 349.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:25:17 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (12.4ms)
+Completed 200 OK in 82ms (Views: 74.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:25:22 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (25.6ms)
+Completed 200 OK in 105ms (Views: 97.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:25:43 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (17.2ms)
+Completed 200 OK in 146ms (Views: 140.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:26:13 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (14.5ms)
+Completed 200 OK in 85ms (Views: 80.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:26:46 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (18.5ms)
+Completed 200 OK in 82ms (Views: 77.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:27:50 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (30.2ms)
+Completed 200 OK in 155ms (Views: 145.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:28:01 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (18.7ms)
+Completed 200 OK in 94ms (Views: 90.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:29:55 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (27.5ms)
+Completed 200 OK in 119ms (Views: 111.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:31:22 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (1.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (42.7ms)
+Completed 200 OK in 203ms (Views: 189.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-21 07:31:41 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (14.9ms)
+Completed 200 OK in 93ms (Views: 85.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-22 06:25:31 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (7.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (440.6ms)
+Completed 200 OK in 1511ms (Views: 1196.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-22 06:26:01 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (83.9ms)
+Completed 200 OK in 431ms (Views: 415.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-22 06:33:35 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (114.1ms)
+Completed 200 OK in 458ms (Views: 443.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/6" for ::1 at 2021-02-22 06:40:49 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (124.7ms)
+Completed 200 OK in 866ms (Views: 844.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-22 06:40:55 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (37.1ms)
+Completed 200 OK in 130ms (Views: 122.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2021-02-22 06:42:11 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (13.6ms)
+Completed 200 OK in 141ms (Views: 133.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/1" for ::1 at 2021-02-22 06:42:15 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (26.3ms)
+Completed 200 OK in 122ms (Views: 115.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2021-02-22 06:42:18 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (12.6ms)
+Completed 200 OK in 102ms (Views: 97.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/1" for ::1 at 2021-02-22 06:44:13 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (46.2ms)
+Completed 200 OK in 157ms (Views: 146.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2021-02-22 06:44:15 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (7.6ms)
+Completed 200 OK in 103ms (Views: 98.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-22 06:57:10 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (22.4ms)
+Completed 200 OK in 233ms (Views: 187.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-22 06:57:29 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tJTLtwZplaZfGrn4AA3YDnLi+wgjREZZCEXjjjEddxWWxWh+R4PuCEfOSAMSmLrtlgCV4wg39s/qlZU4KnGy+Q==", "todo"=>{"name"=>"ああああ", "description"=>"ああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいい"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:16
+  [1m[36mTodo Create (0.6ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ああああ"], ["description", "ああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいいああああああいいいいい"], ["created_at", "2021-02-21 21:57:29.047586"], ["updated_at", "2021-02-21 21:57:29.047586"]]
+  ↳ app/controllers/todos_controller.rb:16
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:16
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 50ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-22 06:57:29 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (38.9ms)
+Completed 200 OK in 155ms (Views: 144.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/7/edit" for ::1 at 2021-02-22 06:57:33 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (11.0ms)
+Completed 200 OK in 132ms (Views: 118.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2021-02-22 07:15:59 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (35.0ms)
+Completed 200 OK in 282ms (Views: 248.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-22 07:16:00 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (41.6ms)
+Completed 200 OK in 265ms (Views: 254.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2021-02-22 07:16:02 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (11.7ms)
+Completed 200 OK in 108ms (Views: 100.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-22 07:16:35 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (39.1ms)
+Completed 200 OK in 185ms (Views: 178.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-02-22 07:16:36 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/new.html.slim within layouts/application (30.8ms)
+Completed 200 OK in 204ms (Views: 191.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-02-22 07:16:42 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7eI/QtEdjP88H297sMlaSiLOkpJBt0BAHenu6Cv5CvPPs5yLkPf3USTLnoCiXDipxiz8eWrE8Nb/OZheMJXPHw==", "todo"=>{"name"=>"qeqe", "description"=>"asdf"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:16
+  [1m[36mTodo Create (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "qeqe"], ["description", "asdf"], ["created_at", "2021-02-21 22:16:42.673667"], ["updated_at", "2021-02-21 22:16:42.673667"]]
+  ↳ app/controllers/todos_controller.rb:16
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:16
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-22 07:16:42 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (29.0ms)
+Completed 200 OK in 90ms (Views: 84.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/8/edit" for ::1 at 2021-02-22 07:16:45 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (10.5ms)
+Completed 200 OK in 93ms (Views: 83.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/todos/8" for ::1 at 2021-02-22 07:16:49 +0900
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ILATrde7qsnu2A8Zv5w9DvpQqY+cNCRJKXd0va2JNkVn+vpkMnrpOmPq2B8nU+wA4tG3B7EWNIVdv0IWzZ8Ccg==", "todo"=>{"name"=>"qeqe", "description"=>"asdf"}, "commit"=>"更新する", "id"=>"8"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:26
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:26
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-22 07:16:49 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (18.4ms)
+Completed 200 OK in 80ms (Views: 75.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/8/edit" for ::1 at 2021-02-22 07:16:52 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/edit.html.slim within layouts/application (12.2ms)
+Completed 200 OK in 90ms (Views: 81.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/todos/8" for ::1 at 2021-02-22 07:16:59 +0900
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"54mxoLvd3dlCjw53SSKQfJDjzgXii6hoi2oOYK3V4sigw1hpXhyeKs+92XHR7UFyiGLQjc+puKT/ojjLzcPW/w==", "todo"=>{"name"=>"fffffffffffffff", "description"=>"asdfasdfasdfasdfasdfasdfadsf"}, "commit"=>"更新する", "id"=>"8"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:26
+  [1m[36mTodo Update (0.4ms)[0m  [1m[33mUPDATE "todos" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["name", "fffffffffffffff"], ["description", "asdfasdfasdfasdfasdfasdfadsf"], ["updated_at", "2021-02-21 22:16:59.128912"], ["id", 8]]
+  ↳ app/controllers/todos_controller.rb:26
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:26
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 45ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/todos" for ::1 at 2021-02-22 07:16:59 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (28.3ms)
+Completed 200 OK in 151ms (Views: 145.7ms | ActiveRecord: 0.1ms)
+
+
