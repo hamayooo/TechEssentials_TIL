@@ -1221,3 +1221,564 @@ Processing by TodosController#index as HTML
 Completed 200 OK in 151ms (Views: 145.7ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/" for ::1 at 2021-03-03 07:22:39 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (28.2ms)
+Completed 200 OK in 387ms (Views: 370.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-03-03 07:23:44 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (14.9ms)
+Completed 200 OK in 234ms (Views: 227.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-03-03 07:24:22 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (1.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (18.5ms)
+Completed 200 OK in 105ms (Views: 97.6ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/todos/8" for ::1 at 2021-03-03 07:24:48 +0900
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for TodosController):
+  
+actionpack (5.2.4.4) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.4.4) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.4.4) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/todos/1" for ::1 at 2021-03-03 07:26:44 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (190.6ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todo' for #<#<Class:0x00007fccee52b4e0>:0x00007fccf6ab1678>
+Did you mean?  @todo):
+    21:         th.uk-width-small= Todo.human_attribute_name(:updated_at)
+    22:         td= @todo.updated_at
+    23:   = link_to '編集', edit_todo_path, class: 'uk-button uk-button-secondary'
+    24:   = link_to '削除', @todo, method: :delete, data: { confirm: "「#{todo.name}」を削除します。よろしいですか？" }, class: 'uk-button uk-button-default'
+    25:   
+  
+app/views/todos/show.html.slim:24:in `_app_views_todos_show_html_slim__159627678298874851_70259144232940'
+Started GET "/todos/1" for ::1 at 2021-03-03 07:27:25 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (7.0ms)
+Completed 200 OK in 84ms (Views: 79.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/todos/1" for ::1 at 2021-03-03 07:27:33 +0900
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for TodosController):
+  
+actionpack (5.2.4.4) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.4.4) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.4) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.4) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.4) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.4.4) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.4) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/todos/1" for ::1 at 2021-03-03 07:29:20 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (5.9ms)
+Completed 200 OK in 80ms (Views: 61.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/todos/1" for ::1 at 2021-03-03 07:29:23 +0900
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"79cZln1+bMyTtANKAHLD+iyGqt9jgBXMyowEson+KfIIYZrbUYeI0RNlrJv3DNwykxzeHCh2X1+KhRLkNywH7w==", "id"=>"1"}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:22
+  [1m[36mTodo Destroy (0.6ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/todos_controller.rb:22
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:22
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos" for ::1 at 2021-03-03 07:29:23 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (17.9ms)
+Completed 200 OK in 73ms (Views: 68.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/todos/8" for ::1 at 2021-03-03 07:29:41 +0900
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RMoFUgZ3+ExtSQF9IMrtr4sFSc1xAqWYUp03T8OvYBqjfIYfKo4cUe2YrqzXtPJnNJ89Djr07wsSlCEZfX1OBw==", "id"=>"8"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:22
+  [1m[36mTodo Destroy (0.4ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/todos_controller.rb:22
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:22
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/todos" for ::1 at 2021-03-03 07:29:41 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (6.4ms)
+Completed 200 OK in 64ms (Views: 60.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2021-03-09 22:56:07 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (51.9ms)
+Completed 200 OK in 494ms (Views: 473.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/todos/2" for ::1 at 2021-03-09 22:56:20 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (10.2ms)
+Completed 200 OK in 73ms (Views: 53.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeTodosNameNotNull (20210309135712)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atodos" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atodos" ("id","name","description","created_at","updated_at")
+                     SELECT "id","name","description","created_at","updated_at" FROM "todos"[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "todos"[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "todos" ("id","name","description","created_at","updated_at")
+                     SELECT "id","name","description","created_at","updated_at" FROM "atodos"[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atodos"[0m
+  ↳ db/migrate/20210309135712_change_todos_name_not_null.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210309135712"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTodo Create (0.7ms)[0m  [1m[32mINSERT INTO "todos" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-03-09 14:23:15.289559"], ["updated_at", "2021-03-09 14:23:15.289559"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to ChangeTodosNameLimit30 (20210309150300)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atodos" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "atodos" ("id","name","description","created_at","updated_at")
+                     SELECT "id","name","description","created_at","updated_at" FROM "todos"[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "todos"[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer NOT NULL PRIMARY KEY, "name" varchar(30) NOT NULL, "description" text DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "todos" ("id","name","description","created_at","updated_at")
+                     SELECT "id","name","description","created_at","updated_at" FROM "atodos"[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "atodos"[0m
+  ↳ db/migrate/20210309150300_change_todos_name_limit30.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210309150300"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTodo Create (0.4ms)[0m  [1m[32mINSERT INTO "todos" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "testtask"], ["created_at", "2021-03-09 15:23:20.901779"], ["updated_at", "2021-03-09 15:23:20.901779"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2021-03-10 00:38:01 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yosukehamaguchi/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (103.1ms)
+Completed 200 OK in 252ms (Views: 221.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/todos/2" for ::1 at 2021-03-10 00:38:07 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (16.5ms)
+Completed 200 OK in 92ms (Views: 72.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/todos/2/edit" for ::1 at 2021-03-10 00:38:08 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:32
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/_form.html.slim (67.8ms)
+  Rendered todos/edit.html.slim within layouts/application (91.6ms)
+Completed 200 OK in 191ms (Views: 173.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/todos/2" for ::1 at 2021-03-10 00:38:13 +0900
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rluBPP1C9t8RKcrbn05AJt5h/rzKoID3q2GM5Gh8iq+LQxBZtLzjE1F/mqqXDahxw9yh1UyXM/WVdHJrRUttoQ==", "todo"=>{"name"=>"asdf", "description"=>"adsfadsfadsfadsfadsfadsfadsfadsf"}, "commit"=>"更新する", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:37
+  [1m[36mTodo Update (0.9ms)[0m  [1m[33mUPDATE "todos" SET "description" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["description", "adsfadsfadsfadsfadsfadsfadsfadsf"], ["updated_at", "2021-03-09 15:38:13.651277"], ["id", 2]]
+  ↳ app/controllers/todos_controller.rb:37
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:37
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 10ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/todos" for ::1 at 2021-03-10 00:38:13 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (7.8ms)
+Completed 200 OK in 69ms (Views: 64.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/2" for ::1 at 2021-03-10 00:38:23 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (14.3ms)
+Completed 200 OK in 143ms (Views: 129.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/todos/2" for ::1 at 2021-03-10 00:38:27 +0900
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"g197G/60bzYAxfoHW/OhRSLUNZttV/4bxiI2HXGyw9piJ7OoN5RNssrP22zvyfDEDpIFdlphp8p+g/DZJ6v+/Q==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:26
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:27
+  [1m[36mTodo Destroy (0.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/todos_controller.rb:27
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:27
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 9ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/todos" for ::1 at 2021-03-10 00:38:27 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (8.8ms)
+Completed 200 OK in 56ms (Views: 51.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/4" for ::1 at 2021-03-10 00:38:29 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (5.9ms)
+Completed 200 OK in 54ms (Views: 47.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/4/edit" for ::1 at 2021-03-10 00:38:30 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTodo Load (3.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:32
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/_form.html.slim (11.8ms)
+  Rendered todos/edit.html.slim within layouts/application (22.4ms)
+Completed 200 OK in 107ms (Views: 95.9ms | ActiveRecord: 3.7ms)
+
+
+Started PATCH "/todos/4" for ::1 at 2021-03-10 00:38:36 +0900
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0GwQQQWc99HNa2Tk0j3upnaomAMbm/wcpIDeORb5LUNOd+Aa8ocGNTlVXIcTEckO+wlVAi4Z0+8ZtdJoBhXz1w==", "todo"=>{"name"=>"あああああ", "description"=>"asdf"}, "commit"=>"更新する", "id"=>"4"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:37
+  [1m[36mTodo Update (0.4ms)[0m  [1m[33mUPDATE "todos" SET "name" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["name", "あああああ"], ["updated_at", "2021-03-09 15:38:36.427259"], ["id", 4]]
+  ↳ app/controllers/todos_controller.rb:37
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:37
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/todos" for ::1 at 2021-03-10 00:38:36 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (11.3ms)
+Completed 200 OK in 82ms (Views: 76.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/4" for ::1 at 2021-03-10 00:38:38 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (8.1ms)
+Completed 200 OK in 52ms (Views: 47.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-03-10 00:38:43 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/_form.html.slim (4.3ms)
+  Rendered todos/new.html.slim within layouts/application (11.5ms)
+Completed 200 OK in 76ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-03-10 00:38:50 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L6pu0EhcTWj2ii+ZnSfsdVu0ojuH44uI2wBAyo7F1lhdrm5ZC+seO2Rom/fc0/37Nbu4Io/CAx9Z6vVofwmWDQ==", "todo"=>{"name"=>"ぽおおおおおお", "description"=>"いいいいいい"}, "commit"=>"登録する"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:17
+  [1m[36mTodo Create (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ぽおおおおおお"], ["description", "いいいいいい"], ["created_at", "2021-03-09 15:38:50.696157"], ["updated_at", "2021-03-09 15:38:50.696157"]]
+  ↳ app/controllers/todos_controller.rb:17
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:17
+Redirected to http://localhost:3000/todos/9
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/todos/9" for ::1 at 2021-03-10 00:38:50 +0900
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:7
+  Rendering todos/show.html.slim within layouts/application
+  Rendered todos/show.html.slim within layouts/application (6.9ms)
+Completed 200 OK in 48ms (Views: 41.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-03-10 00:43:15 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/_form.html.slim (9.1ms)
+  Rendered todos/new.html.slim within layouts/application (19.3ms)
+Completed 200 OK in 113ms (Views: 91.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/todos/new" for ::1 at 2021-03-10 00:43:54 +0900
+Processing by TodosController#new as HTML
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/_form.html.slim (6.2ms)
+  Rendered todos/new.html.slim within layouts/application (20.6ms)
+Completed 200 OK in 82ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2021-03-10 00:44:05 +0900
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6xB4m35H7m9y+E1dDGNXpI3Wsvm9MLhvjoDp9DU+jDMKaLAot2fM67jybDa4WQYloZCCFIoG4b42IS8wYyexFA==", "todo"=>{"name"=>"ああああああああああああああああああああああああああああああああああああああああああああああああああああああ", "description"=>"あああああ"}, "commit"=>"登録する"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/todos_controller.rb:17
+  Rendering todos/new.html.slim within layouts/application
+  Rendered todos/_form.html.slim (8.8ms)
+  Rendered todos/new.html.slim within layouts/application (18.6ms)
+Completed 200 OK in 95ms (Views: 86.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2021-03-10 00:46:42 +0900
+Processing by TodosController#index as HTML
+  Rendering todos/index.html.slim within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/views/todos/index.html.slim:12
+  Rendered todos/index.html.slim within layouts/application (34.1ms)
+Completed 200 OK in 176ms (Views: 161.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos/3/edit" for ::1 at 2021-03-10 00:46:45 +0900
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:32
+  Rendering todos/edit.html.slim within layouts/application
+  Rendered todos/_form.html.slim (14.8ms)
+  Rendered todos/edit.html.slim within layouts/application (27.7ms)
+Completed 200 OK in 89ms (Views: 78.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/todos/3" for ::1 at 2021-03-10 00:46:53 +0900
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hYEhzjoKA3J8K3ndYIVqSPECkpkcrp0JgUiQqg0kOYcqAjfUDTZjyxvU+hIowneG8HqB4d8Jcg2eaivWbDMlmw==", "todo"=>{"name"=>"いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい", "description"=>"asdf"}, "commit"=>"更新する", "id"=>"3"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:37
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/todos_controller.rb:37
+Completed 422 Unprocessable Entity in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (バリデーションに失敗しました: 名称は30文字以内で入力してください):
+  
+app/controllers/todos_controller.rb:37:in `update'

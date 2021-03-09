@@ -12,9 +12,20 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo = Todo.new(todo_params)
-    todo.save!
-    redirect_to todos_url, notice: "TODO「#{todo.name}」を登録しました。"
+    @todo = Todo.new(todo_params)
+
+    if @todo.save
+      redirect_to @todo, notice: "「#{@todo.name}」を登録しました。"
+    else
+      render :new
+    end
+    
+  end
+
+  def destroy
+    todo = Todo.find(params[:id])
+    todo.destroy
+    redirect_to todos_url, notice: "「#{todo.name}」を削除しました。"
   end
 
   def edit
