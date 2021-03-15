@@ -8,7 +8,8 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    header class="uk-padding-small uk-background-primary uk-light" TODOS
+    header.uk-padding-small.uk-background-primary 
+      = link_to 'TODOS', root_path, class: 'uk-light'
     .uk-container.uk-container-small.uk-margin
       - if flash.notice.present?
         .uk-alert.uk-alert-success= flash.notice

@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+vendor/assets/javascript/uikit-icons.js
+vendor/assets/javascript/uikit.min.js
+vendor/assets/stylesheet/uikit.min.css

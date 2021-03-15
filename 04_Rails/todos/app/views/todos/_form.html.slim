@@ -1,5 +1,5 @@
-= if todo.errors.present?
-  ul#error_explatnation.uk-alert.uk-alert-danger
+- if todo.errors.present?
+  ul.uk-alert.uk-alert-danger
     - todo.errors.full_messages.each do |message|
       li = message
 
