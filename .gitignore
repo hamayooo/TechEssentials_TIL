@@ -29,3 +29,9 @@
 vendor/assets/javascript/uikit-icons.js
 vendor/assets/javascript/uikit.min.js
 vendor/assets/stylesheet/uikit.min.css
+
+# Rails練習アプリ（鍵が含まれていたため削除）
+04_Rails/todoes/
+04_Rails/todos/
+*.sqlite3
+config/master.key
